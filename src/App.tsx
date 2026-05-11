@@ -1,29 +1,35 @@
 import { useState } from "react";
+import creamDetail from "./assets/cream-detail.webp";
 import delicartFacialTreatment from "./assets/delicarte-facial-treatment.jpg";
 import delicartProducts from "./assets/delicarte-products.jpg";
 import delicartReception from "./assets/delicarte-reception.jpg";
 import delicartTreatmentRoom from "./assets/delicarte-treatment-room.jpg";
+import oilDetail from "./assets/oil-detail.webp";
 import raquelAvatar from "./assets/raquel-avatar.jpg";
 import raquelPress from "./assets/raquel-press.jpg";
 
 const treatments = [
   {
     name: "Massagem Relaxante",
+    detail: "Ideal para desacelerar",
     description:
       "Um convite a desacelerar, aliviar a tensão acumulada e regressar ao corpo com suavidade.",
   },
   {
     name: "Massagem Terapêutica",
+    detail: "Foco em zonas de desconforto",
     description:
       "Trabalho atento sobre zonas de maior desconforto, sempre adaptado ao ritmo e sensibilidade de cada pessoa.",
   },
   {
     name: "Drenagem Linfática",
+    detail: "Leveza e bem-estar corporal",
     description:
       "Toques precisos e delicados para apoiar a sensação de leveza e bem-estar corporal.",
   },
   {
     name: "Ritual de Bem-Estar",
+    detail: "Uma pausa mais envolvente",
     description:
       "Uma experiência mais envolvente, pensada para quem procura cuidado, presença e uma pausa profunda.",
   },
@@ -56,6 +62,14 @@ const galleryImages = [
   {
     src: delicartProducts,
     alt: "Detalhe de produtos usados nos tratamentos Delicarte",
+  },
+  {
+    src: oilDetail,
+    alt: "Óleo de cuidado corporal preparado para uma sessão",
+  },
+  {
+    src: creamDetail,
+    alt: "Textura de creme de cuidado corporal",
   },
   {
     src: delicartReception,
@@ -176,6 +190,11 @@ function Hero() {
             Ver tratamentos
           </a>
         </div>
+        <div className="mt-8 grid gap-3 border-t border-stone-200 pt-6 text-sm leading-6 text-stone-600 sm:grid-cols-3">
+          <p>Linfoterapeuta</p>
+          <p>Sessões personalizadas</p>
+          <p>Marcação direta com a Raquel</p>
+        </div>
       </div>
     </section>
   );
@@ -229,9 +248,18 @@ function Treatments() {
           <article key={treatment.name} className="bg-stone-50 p-8 transition duration-300 hover:bg-[#f4eee6] sm:p-10">
             <span className="block h-px w-12 bg-stone-500" />
             <h3 className="mt-8 font-serif text-3xl text-stone-950">{treatment.name}</h3>
+            <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-stone-500">{treatment.detail}</p>
             <p className="mt-5 text-base leading-7 text-stone-700">{treatment.description}</p>
           </article>
         ))}
+      </div>
+      <div className="mt-10 flex flex-col items-start gap-4 border-t border-stone-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <p className="max-w-xl text-sm leading-6 text-stone-600">
+          Não tem a certeza qual escolher? A sessão é ajustada ao que sente no dia.
+        </p>
+        <a className="button button-secondary button-small" href="https://wa.me/351917968714">
+          Falar com a Raquel
+        </a>
       </div>
     </section>
   );
@@ -285,7 +313,7 @@ function Experience() {
 function Press() {
   return (
     <section className="border-y border-stone-200 bg-[#f6f1ea]">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[1fr_0.72fr] md:items-center lg:px-12 lg:py-20">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[1fr_0.62fr] md:items-center lg:px-12 lg:py-20">
         <div className="max-w-2xl">
           <p className="section-kicker">Na imprensa</p>
           <h2 className="section-title">Uma abordagem reconhecida pelo cuidado com a qualidade de vida.</h2>
@@ -293,12 +321,15 @@ function Press() {
             O trabalho da Raquel cruza técnica, escuta e sensibilidade, com especial atenção a pessoas que
             precisam de um acompanhamento corporal mais cuidadoso e adaptado.
           </p>
+          <p className="mt-6 text-sm uppercase tracking-[0.16em] text-stone-500">Destaque Revista Spot</p>
         </div>
-        <img
-          className="mx-auto max-h-[520px] w-full max-w-sm rounded-sm object-cover shadow-sm"
-          src={raquelPress}
-          alt="Publicação sobre Raquel Oliveira na Revista Spot"
-        />
+        <div className="border border-stone-300 bg-stone-50 p-3">
+          <img
+            className="mx-auto max-h-[430px] w-full max-w-xs rounded-sm object-cover object-top"
+            src={raquelPress}
+            alt="Publicação sobre Raquel Oliveira na Revista Spot"
+          />
+        </div>
       </div>
     </section>
   );
@@ -311,7 +342,7 @@ function Gallery() {
         <p className="section-kicker">O espaço</p>
         <h2 className="section-title">Detalhes reais de uma experiência tranquila.</h2>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {galleryImages.map((image) => (
           <img
             key={image.src}
@@ -334,7 +365,7 @@ function FinalCta() {
           Marque uma sessão e ofereça ao seu corpo um intervalo com presença.
         </h2>
         <p className="mt-6 max-w-2xl text-base leading-7 text-stone-700">
-          Para horários, disponibilidade e escolha do tratamento mais adequado, fale diretamente com a Raquel.
+          Para horários, disponibilidade e escolha do tratamento mais adequado, fale diretamente com a Raquel no WhatsApp.
         </p>
         <a className="button mt-9" href="https://wa.me/351917968714">
           Marcar pelo WhatsApp
@@ -359,7 +390,7 @@ function Footer() {
           <a className="footer-link" href="https://www.tiktok.com/@delicarte_raqueloliveira?_r=1&_t=ZG-96HUYGMbPbF">
             TikTok
           </a>
-          <p className="text-stone-400">Portugal</p>
+          <p className="text-stone-400">Atendimento por marcação</p>
           <a className="footer-link" href="tel:+351917968714">
             +351 917 968 714
           </a>
