@@ -1,10 +1,10 @@
 import { useState } from "react";
-import creamDetail from "./assets/cream-detail.webp";
-import editorialRoom from "./assets/editorial-room.webp";
-import heroTreatmentRoom from "./assets/hero-treatment-room.webp";
-import oilDetail from "./assets/oil-detail.webp";
-import raquelPortrait from "./assets/raquel-portrait.webp";
-import studioCorner from "./assets/studio-corner.webp";
+import delicartFacialTreatment from "./assets/delicarte-facial-treatment.png";
+import delicartProducts from "./assets/delicarte-products.png";
+import delicartReception from "./assets/delicarte-reception.png";
+import delicartTreatmentRoom from "./assets/delicarte-treatment-room.png";
+import raquelAvatar from "./assets/raquel-avatar.jpg";
+import raquelPress from "./assets/raquel-press.png";
 
 const treatments = [
   {
@@ -46,20 +46,20 @@ const experience = [
 
 const galleryImages = [
   {
-    src: studioCorner,
-    alt: "Toalhas claras preparadas para uma sessão de massagem",
+    src: delicartTreatmentRoom,
+    alt: "Sala Delicarte preparada para uma sessão de cuidado corporal",
   },
   {
-    src: oilDetail,
-    alt: "Ambiente sereno de cuidado corporal",
+    src: delicartFacialTreatment,
+    alt: "Tratamento facial realizado com movimentos delicados",
   },
   {
-    src: creamDetail,
-    alt: "Detalhe de produto de cuidado corporal em tons neutros",
+    src: delicartProducts,
+    alt: "Detalhe de produtos usados nos tratamentos Delicarte",
   },
   {
-    src: editorialRoom,
-    alt: "Espaço tranquilo com luz natural",
+    src: delicartReception,
+    alt: "Receção luminosa do espaço Delicarte",
   },
 ];
 
@@ -72,6 +72,7 @@ function App() {
       <Treatments />
       <Editorial />
       <Experience />
+      <Press />
       <Gallery />
       <FinalCta />
       <Footer />
@@ -151,8 +152,8 @@ function Hero() {
       <div className="relative min-h-[420px] overflow-hidden rounded-sm md:min-h-[620px]">
         <img
           className="h-full w-full object-cover"
-          src={heroTreatmentRoom}
-          alt="Sala de massagem luminosa e serena"
+          src={delicartTreatmentRoom}
+          alt="Sala Delicarte preparada para uma sessão de cuidado corporal"
         />
       </div>
       <div className="max-w-2xl md:pl-8">
@@ -181,11 +182,20 @@ function About() {
   return (
     <section id="sobre" className="border-y border-stone-200 bg-[#f6f1ea]">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 md:grid-cols-[0.8fr_1fr] md:items-center lg:px-12 lg:py-28">
-        <img
-          className="h-[440px] w-full rounded-sm object-cover object-center"
-          src={raquelPortrait}
-          alt="Retrato natural de uma profissional de bem-estar"
-        />
+        <div className="grid gap-4">
+          <img
+            className="h-[440px] w-full rounded-sm object-cover object-center"
+            src={delicartFacialTreatment}
+            alt="Tratamento facial num ambiente calmo e acolhedor"
+          />
+          <div className="flex items-center gap-4 border-t border-stone-300 pt-4">
+            <img className="h-16 w-16 rounded-full object-cover" src={raquelAvatar} alt="Raquel Oliveira" />
+            <div>
+              <p className="font-serif text-xl text-stone-950">Raquel Oliveira</p>
+              <p className="text-sm uppercase tracking-[0.16em] text-stone-500">Linfoterapeuta</p>
+            </div>
+          </div>
+        </div>
         <div className="md:pl-10">
           <p className="section-kicker">Olá, sou a Raquel</p>
           <h2 className="section-title">Cuidar também é saber escutar.</h2>
@@ -231,8 +241,8 @@ function Editorial() {
         <div className="relative min-h-[430px] overflow-hidden rounded-sm md:min-h-[560px]">
           <img
             className="absolute inset-0 h-full w-full object-cover"
-            src={editorialRoom}
-            alt="Detalhe de uma sessão de massagem em ambiente calmo"
+            src={delicartReception}
+            alt="Receção luminosa do espaço Delicarte"
           />
           <div className="absolute inset-0 bg-stone-950/20" />
           <div className="relative flex min-h-[430px] items-end p-7 md:min-h-[560px] md:p-12">
@@ -269,9 +279,35 @@ function Experience() {
   );
 }
 
+function Press() {
+  return (
+    <section className="border-y border-stone-200 bg-[#f6f1ea]">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 md:grid-cols-[1fr_0.72fr] md:items-center lg:px-12 lg:py-24">
+        <div className="max-w-2xl">
+          <p className="section-kicker">Na imprensa</p>
+          <h2 className="section-title">Uma abordagem reconhecida pelo cuidado com a qualidade de vida.</h2>
+          <p className="copy mt-6">
+            O trabalho da Raquel cruza técnica, escuta e sensibilidade, com especial atenção a pessoas que
+            precisam de um acompanhamento corporal mais cuidadoso e adaptado.
+          </p>
+        </div>
+        <img
+          className="mx-auto max-h-[520px] w-full max-w-sm rounded-sm object-cover shadow-sm"
+          src={raquelPress}
+          alt="Publicação sobre Raquel Oliveira na Revista Spot"
+        />
+      </div>
+    </section>
+  );
+}
+
 function Gallery() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+      <div className="mb-10 max-w-2xl">
+        <p className="section-kicker">O espaço</p>
+        <h2 className="section-title">Detalhes reais de uma experiência tranquila.</h2>
+      </div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {galleryImages.map((image) => (
           <img
