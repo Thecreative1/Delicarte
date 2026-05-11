@@ -4,7 +4,7 @@ This project is a Vite app published under the GitHub Pages repository path:
 
 https://thecreative1.github.io/Delicarte/
 
-GitHub Pages must serve the production build from `dist`, not the repository root.
+The site is published from the `gh-pages` branch.
 
 ## Required GitHub Pages Setting
 
@@ -14,40 +14,46 @@ Settings -> Pages
 
 Set:
 
-Source: GitHub Actions
+Source: Deploy from a branch
+
+Branch:
+
+gh-pages
+
+Folder:
+
+/root
 
 Do not use:
 
-Deploy from branch -> main -> /root
+main -> /root
 
-The root `index.html` is only for local Vite development and contains:
+Do not serve the repository root `index.html` as the production site.
+
+## Development Index
+
+The root `index.html` must stay as the Vite development entry:
 
 ```html
 <script type="module" src="/src/main.tsx"></script>
 ```
 
-That file is not valid for production on GitHub Pages.
+Do not replace it with a production `dist/index.html`.
 
-## Workflow
+## Deploy Command
 
-The deploy workflow is:
-
-`.github/workflows/deploy.yml`
-
-It runs:
+After changes, publish with:
 
 ```bash
-npm ci
-npm run build
+npm run deploy
 ```
 
-Then it uploads only:
+The `deploy` script builds the app and publishes only the `dist` folder to the `gh-pages` branch:
 
-```text
-dist
+```json
+"predeploy": "npm run build",
+"deploy": "gh-pages -d dist"
 ```
-
-using `actions/upload-pages-artifact`.
 
 ## Expected Production Output
 
@@ -64,4 +70,4 @@ Example:
 <link rel="stylesheet" crossorigin href="/Delicarte/assets/...css">
 ```
 
-If the public site is blank and the browser shows `/src/main.tsx`, GitHub Pages is still serving `main/root` instead of the GitHub Actions artifact.
+If the public site is blank and the browser shows `/src/main.tsx`, GitHub Pages is still serving `main / root` instead of `gh-pages / root`.
