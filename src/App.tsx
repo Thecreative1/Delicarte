@@ -108,7 +108,7 @@ function Header() {
           className="hidden min-h-10 items-center justify-center border border-stone-950 bg-stone-950 px-5 text-xs font-medium uppercase tracking-[0.16em] text-stone-50 transition duration-300 hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2 focus:ring-offset-stone-50 sm:inline-flex"
           href="https://wa.me/351917968714"
         >
-          Marcar sessão
+          Marcar pelo WhatsApp
         </a>
         <button
           className="inline-flex min-h-10 items-center border border-stone-300 px-4 text-xs font-medium uppercase tracking-[0.18em] text-stone-800 md:hidden"
@@ -138,7 +138,7 @@ function Header() {
             Contacto
           </a>
           <a className="button mt-2" href="https://wa.me/351917968714" onClick={closeMenu}>
-            Marcar sessão
+            Marcar pelo WhatsApp
           </a>
         </nav>
       </div>
@@ -148,18 +148,21 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="top" className="mx-auto grid max-w-7xl gap-10 px-5 pb-20 pt-8 sm:px-8 md:grid-cols-[0.95fr_1fr] md:items-center lg:px-12 lg:pb-28 lg:pt-14">
-      <div className="relative min-h-[420px] overflow-hidden rounded-sm md:min-h-[620px]">
+    <section id="top" className="mx-auto grid max-w-7xl gap-9 px-5 pb-16 pt-7 sm:px-8 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:px-12 lg:pb-24 lg:pt-12">
+      <div className="relative aspect-[4/5] overflow-hidden rounded-sm sm:aspect-[16/11] lg:aspect-auto lg:min-h-[620px]">
         <img
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-center"
           src={delicartTreatmentRoom}
           alt="Sala Delicarte preparada para uma sessão de cuidado corporal"
         />
       </div>
-      <div className="max-w-2xl md:pl-8">
-        <p className="section-kicker">Massagens e cuidado corporal</p>
-        <h1 className="mt-5 font-serif text-5xl leading-[0.98] text-stone-950 sm:text-6xl lg:text-7xl">
-          Delicarte by Raquel Oliveira
+      <div className="max-w-2xl lg:pl-8">
+        <p className="section-kicker">Massagens · bem-estar · cuidado corporal</p>
+        <h1 className="mt-5 font-serif text-5xl leading-[0.96] text-stone-950 sm:text-6xl lg:text-7xl">
+          Delicarte
+          <span className="mt-3 block text-3xl leading-tight text-stone-700 sm:text-4xl lg:text-5xl">
+            by Raquel Oliveira
+          </span>
         </h1>
         <p className="mt-7 max-w-xl text-lg leading-8 text-stone-700">
           Um espaço para regressar ao corpo com tempo, presença e delicadeza. Sessões pensadas para acolher,
@@ -167,10 +170,10 @@ function Hero() {
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <a className="button" href="https://wa.me/351917968714">
-            Marcar sessão
+            Marcar pelo WhatsApp
           </a>
           <a className="button button-secondary" href="#tratamentos">
-            Conhecer tratamentos
+            Ver tratamentos
           </a>
         </div>
       </div>
@@ -181,10 +184,10 @@ function Hero() {
 function About() {
   return (
     <section id="sobre" className="border-y border-stone-200 bg-[#f6f1ea]">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 md:grid-cols-[0.8fr_1fr] md:items-center lg:px-12 lg:py-28">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[0.8fr_1fr] md:items-center lg:px-12 lg:py-24">
         <div className="grid gap-4">
           <img
-            className="h-[440px] w-full rounded-sm object-cover object-center"
+            className="aspect-[4/5] w-full rounded-sm object-cover object-center md:h-[440px]"
             src={delicartFacialTreatment}
             alt="Tratamento facial num ambiente calmo e acolhedor"
           />
@@ -216,7 +219,7 @@ function About() {
 
 function Treatments() {
   return (
-    <section id="tratamentos" className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+    <section id="tratamentos" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
       <div className="max-w-2xl">
         <p className="section-kicker">Tratamentos</p>
         <h2 className="section-title">Escolha uma pausa com intenção.</h2>
@@ -236,17 +239,17 @@ function Treatments() {
 
 function Editorial() {
   return (
-    <section className="px-5 pb-20 sm:px-8 lg:px-12">
+    <section className="px-5 pb-16 sm:px-8 lg:px-12 lg:pb-20">
       <div className="mx-auto max-w-7xl">
-        <div className="relative min-h-[430px] overflow-hidden rounded-sm md:min-h-[560px]">
+        <div className="relative min-h-[320px] overflow-hidden rounded-sm md:min-h-[560px]">
           <img
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover object-center"
             src={delicartReception}
             alt="Receção luminosa do espaço Delicarte"
           />
           <div className="absolute inset-0 bg-stone-950/20" />
-          <div className="relative flex min-h-[430px] items-end p-7 md:min-h-[560px] md:p-12">
-            <p className="max-w-2xl font-serif text-4xl leading-tight text-stone-50 sm:text-5xl">
+          <div className="relative flex min-h-[320px] items-end p-6 md:min-h-[560px] md:p-12">
+            <p className="max-w-2xl font-serif text-3xl leading-tight text-stone-50 sm:text-5xl">
               O corpo também precisa de lugares onde possa pousar.
             </p>
           </div>
@@ -259,7 +262,7 @@ function Editorial() {
 function Experience() {
   return (
     <section id="experiencia" className="bg-[#3a302a] text-stone-50">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
         <div className="max-w-2xl">
           <p className="section-kicker text-stone-300">A experiência Delicarte</p>
           <h2 className="mt-5 font-serif text-4xl leading-tight text-stone-50 sm:text-5xl">
@@ -282,7 +285,7 @@ function Experience() {
 function Press() {
   return (
     <section className="border-y border-stone-200 bg-[#f6f1ea]">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 md:grid-cols-[1fr_0.72fr] md:items-center lg:px-12 lg:py-24">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[1fr_0.72fr] md:items-center lg:px-12 lg:py-20">
         <div className="max-w-2xl">
           <p className="section-kicker">Na imprensa</p>
           <h2 className="section-title">Uma abordagem reconhecida pelo cuidado com a qualidade de vida.</h2>
@@ -303,7 +306,7 @@ function Press() {
 
 function Gallery() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
       <div className="mb-10 max-w-2xl">
         <p className="section-kicker">O espaço</p>
         <h2 className="section-title">Detalhes reais de uma experiência tranquila.</h2>
@@ -325,7 +328,7 @@ function Gallery() {
 function FinalCta() {
   return (
     <section id="contacto" className="border-y border-stone-200 bg-[#ebe1d6]">
-      <div className="mx-auto flex max-w-5xl flex-col items-center px-5 py-20 text-center sm:px-8 lg:py-28">
+      <div className="mx-auto flex max-w-5xl flex-col items-center px-5 py-16 text-center sm:px-8 lg:py-24">
         <p className="section-kicker">Contacto</p>
         <h2 className="mt-5 max-w-3xl font-serif text-4xl leading-tight text-stone-950 sm:text-5xl">
           Marque uma sessão e ofereça ao seu corpo um intervalo com presença.
@@ -334,7 +337,7 @@ function FinalCta() {
           Para horários, disponibilidade e escolha do tratamento mais adequado, fale diretamente com a Raquel.
         </p>
         <a className="button mt-9" href="https://wa.me/351917968714">
-          Marcar sessão
+          Marcar pelo WhatsApp
         </a>
       </div>
     </section>

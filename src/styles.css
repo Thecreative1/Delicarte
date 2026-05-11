@@ -31,7 +31,7 @@ img {
 }
 
 .section-title {
-  @apply mt-5 font-serif text-4xl leading-tight text-stone-950 sm:text-5xl;
+  @apply mt-5 font-serif text-3xl leading-tight text-stone-950 sm:text-5xl;
 }
 
 .copy {
@@ -61,6 +61,6 @@ img {
 
 @media (max-width: 420px) {
   .button {
-    @apply w-full px-4 text-xs;
+    @apply w-full px-4 text-xs tracking-[0.12em];
   }
 }
