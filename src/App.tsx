@@ -106,7 +106,7 @@ function Header() {
         </nav>
         <a
           className="hidden min-h-10 items-center justify-center border border-stone-950 bg-stone-950 px-5 text-xs font-medium uppercase tracking-[0.16em] text-stone-50 transition duration-300 hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2 focus:ring-offset-stone-50 sm:inline-flex"
-          href="https://wa.me/351900000000"
+          href="https://wa.me/351917968714"
         >
           Marcar sessão
         </a>
@@ -137,7 +137,7 @@ function Header() {
           <a className="nav-link" href="#contacto" onClick={closeMenu}>
             Contacto
           </a>
-          <a className="button mt-2" href="https://wa.me/351900000000" onClick={closeMenu}>
+          <a className="button mt-2" href="https://wa.me/351917968714" onClick={closeMenu}>
             Marcar sessão
           </a>
         </nav>
@@ -166,7 +166,7 @@ function Hero() {
           aliviar e criar uma pausa verdadeira no ritmo dos dias.
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a className="button" href="https://wa.me/351900000000">
+          <a className="button" href="https://wa.me/351917968714">
             Marcar sessão
           </a>
           <a className="button button-secondary" href="#tratamentos">
@@ -333,7 +333,7 @@ function FinalCta() {
         <p className="mt-6 max-w-2xl text-base leading-7 text-stone-700">
           Para horários, disponibilidade e escolha do tratamento mais adequado, fale diretamente com a Raquel.
         </p>
-        <a className="button mt-9" href="https://wa.me/351900000000">
+        <a className="button mt-9" href="https://wa.me/351917968714">
           Marcar sessão
         </a>
       </div>
@@ -350,15 +350,15 @@ function Footer() {
           <p className="mt-3 text-stone-400">by Raquel Oliveira</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <a className="footer-link" href="https://www.instagram.com/">
+          <a className="footer-link" href="https://www.instagram.com/delicarte_raqueloliveira?igsh=eXBkN244eGFzdWRi&utm_source=qr">
             Instagram
           </a>
-          <a className="footer-link" href="https://www.tiktok.com/">
+          <a className="footer-link" href="https://www.tiktok.com/@delicarte_raqueloliveira?_r=1&_t=ZG-96HUYGMbPbF">
             TikTok
           </a>
           <p className="text-stone-400">Portugal</p>
-          <a className="footer-link" href="tel:+351900000000">
-            +351 900 000 000
+          <a className="footer-link" href="tel:+351917968714">
+            +351 917 968 714
           </a>
         </div>
       </div>
