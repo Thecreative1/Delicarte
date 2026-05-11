@@ -52,8 +52,10 @@ The `deploy` script builds the app and publishes only the `dist` folder to the `
 
 ```json
 "predeploy": "npm run build",
-"deploy": "gh-pages -d dist"
+"deploy": "node scripts/deploy-gh-pages.mjs"
 ```
+
+The deploy script creates a temporary branch worktree from `dist`, adds `.nojekyll`, and force-pushes it to `gh-pages`.
 
 ## Expected Production Output
 
