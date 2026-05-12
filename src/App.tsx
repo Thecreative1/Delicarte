@@ -1,16 +1,14 @@
 import { useState } from "react";
-import creamDetail from "./assets/cream-detail.webp";
+import delicartFacialTreatment from "./assets/delicarte-facial-treatment.jpg";
 import delicartProducts from "./assets/delicarte-products.jpg";
+import delicartReception from "./assets/delicarte-reception.jpg";
 import delicartTreatmentRoom from "./assets/delicarte-treatment-room.jpg";
 import drainageAbdomen from "./assets/drainage-abdomen.jpg";
 import drainageLeg from "./assets/drainage-leg.jpg";
 import greenFeather from "./assets/green-feather.jpg";
-import oilDetail from "./assets/oil-detail.webp";
 import raquelBrandingBio from "./assets/raquel-branding-bio.jpg";
 import raquelPdfAvatar from "./assets/raquel-pdf-avatar.jpg";
 import raquelPress from "./assets/raquel-press.jpg";
-import softHands from "./assets/soft-hands.jpg";
-import studioCorner from "./assets/studio-corner.webp";
 
 const serviceGroups = [
   {
@@ -86,24 +84,16 @@ const galleryImages = [
     alt: "Drenagem linfática nos membros inferiores",
   },
   {
-    src: softHands,
-    alt: "Detalhe de mãos associado ao cuidado manual",
+    src: delicartTreatmentRoom,
+    alt: "Sala Delicarte preparada para uma sessão de cuidado corporal",
   },
   {
-    src: studioCorner,
-    alt: "Detalhe acolhedor do estúdio Delicarte",
+    src: delicartReception,
+    alt: "Receção luminosa do espaço Delicarte",
   },
   {
-    src: delicartProducts,
-    alt: "Detalhe de produtos usados nos tratamentos Delicarte",
-  },
-  {
-    src: oilDetail,
-    alt: "Óleo de cuidado corporal preparado para uma sessão",
-  },
-  {
-    src: creamDetail,
-    alt: "Textura de creme de cuidado corporal",
+    src: delicartFacialTreatment,
+    alt: "Tratamento realizado no espaço Delicarte",
   },
 ];
 
@@ -416,50 +406,40 @@ function Gallery() {
 
 function FinalCta() {
   return (
-    <section id="contacto" className="border-y border-stone-200 bg-[#ebe1d6]">
-      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="section-kicker">Contacto</p>
-          <h2 className="mt-5 font-serif text-4xl leading-tight text-stone-950 sm:text-5xl">
-            Marque uma sessão e ofereça ao seu corpo um intervalo com presença.
+    <section id="contacto" className="border-y border-stone-200 bg-stone-50">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-2 md:items-center lg:px-12 lg:py-24">
+        <div className="max-w-xl">
+          <h2 className="max-w-lg text-2xl font-semibold leading-tight text-stone-950 sm:text-3xl">
+            Um ambiente preparado para acompanhar o corpo com conforto, atenção e cuidado especializado.
           </h2>
-          <p className="mt-6 text-base leading-7 text-stone-700">
-            Para horários, disponibilidade e escolha do tratamento mais adequado, fale diretamente através do WhatsApp.
-          </p>
-        </div>
-        <div className="mt-10 grid overflow-hidden border border-stone-200 bg-stone-50 md:grid-cols-[1fr_0.9fr]">
-          <div className="p-7 sm:p-10">
-            <p className="section-kicker">Estúdio</p>
-            <h3 className="mt-5 font-serif text-3xl leading-tight text-stone-950">
-              Um ambiente preparado para acompanhar o corpo com conforto, atenção e cuidado especializado.
-            </h3>
-            <div className="mt-8 grid gap-6 text-sm leading-6 text-stone-700 sm:grid-cols-2">
-              <div>
-                <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone-500">Morada</p>
-                <p className="mt-2">
-                  Rua Santa Eulália 778,
-                  <br />
-                  Fermentões, Guimarães
-                </p>
-              </div>
-              <div>
-                <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone-500">Telefone</p>
-                <p className="mt-2">
-                  <a className="nav-link text-stone-700 underline-offset-4 hover:underline" href="tel:+351917968714">
-                    917 968 714
-                  </a>
-                  <br />
-                  <span className="text-stone-500">(chamada para rede móvel nacional)</span>
-                </p>
-              </div>
+          <div className="mt-14 grid gap-7 text-lg leading-tight text-stone-700">
+            <div>
+              <p className="font-medium text-stone-600">Estúdio</p>
+              <p className="mt-1">
+                Rua Santa Eulália 778,
+                <br />
+                Fermentões Guimarães
+              </p>
             </div>
-            <a className="button mt-9" href="https://wa.me/351917968714">
-              Marcar pelo WhatsApp
-            </a>
+            <div>
+              <p className="font-medium text-stone-600">Telefone</p>
+              <p className="mt-1">
+                <a className="nav-link text-stone-700 underline-offset-4 hover:underline" href="tel:+351917968714">
+                  917 968 714
+                </a>
+                <br />
+                <span className="text-base text-stone-500">(chamada com custo para rede móvel nacional)</span>
+              </p>
+            </div>
           </div>
+          <a className="button mt-9" href="https://wa.me/351917968714">
+            Marcar pelo WhatsApp
+          </a>
+        </div>
+        <div>
           <img
-            className="h-full min-h-[320px] w-full object-cover object-center"
-            src={studioCorner}
+            className="aspect-[4/3] w-full object-cover object-center"
+            src={delicartTreatmentRoom}
             alt="Detalhe acolhedor do estúdio Delicarte"
           />
         </div>
