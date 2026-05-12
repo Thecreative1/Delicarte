@@ -334,16 +334,16 @@ function Treatments() {
 
 function Editorial() {
   return (
-    <section className="px-5 pb-16 sm:px-8 lg:px-12 lg:pb-20">
-      <div className="mx-auto max-w-7xl">
-        <div className="relative min-h-[320px] overflow-hidden rounded-sm md:min-h-[560px]">
+    <section className="pb-16 lg:pb-20">
+      <div className="mx-auto max-w-7xl sm:px-8 lg:px-12">
+        <div className="relative min-h-[78vh] overflow-hidden sm:rounded-sm md:min-h-[680px]">
           <img
             className="absolute inset-0 h-full w-full object-cover object-center"
             src={delicartReception}
             alt="Receção luminosa do espaço Delicarte"
           />
-          <div className="absolute inset-0 bg-stone-950/20" />
-          <div className="relative flex min-h-[320px] items-end p-6 md:min-h-[560px] md:p-12">
+          <div className="absolute inset-0 bg-stone-950/28" />
+          <div className="relative flex min-h-[78vh] items-end px-5 pb-16 pt-24 sm:px-8 md:min-h-[680px] md:p-12">
             <p className="max-w-2xl font-serif text-3xl leading-tight text-stone-50 sm:text-5xl">
               O corpo também precisa de lugares onde possa pousar.
             </p>
