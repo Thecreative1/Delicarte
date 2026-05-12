@@ -11,28 +11,68 @@ import raquelPress from "./assets/raquel-press.jpg";
 
 const treatments = [
   {
-    name: "Drenagem Linfática",
-    detail: "Pós-operatório, lipedema e gravidez",
+    name: "Drenagem Linfática Pós-Operatório",
+    detail: "Terapia intensiva · 70€ · 60 min",
     description:
-      "Drenagem linfática terapêutica adaptada ao pós-operatório, ao lipedema e a fases em que o corpo precisa de recuperar com leveza, segurança e atenção.",
+      "Drenagem linfática terapêutica para acompanhar a recuperação depois de cirurgia ou procedimento, sempre ajustada à fase do corpo.",
   },
   {
-    name: "Massagem Relaxante",
-    detail: "Ideal para desacelerar",
+    name: "Drenagem Linfática Manual",
+    detail: "65€ · 60 min",
     description:
-      "Um convite a desacelerar, aliviar a tensão acumulada e regressar ao corpo com suavidade.",
+      "Trabalho manual cuidado para apoiar a circulação linfática, reduzir sensação de peso e promover conforto corporal.",
   },
   {
-    name: "Massagem Terapêutica",
-    detail: "Foco em zonas de desconforto",
+    name: "Drenagem Linfática Lipedema",
+    detail: "35€ · 45 min",
     description:
-      "Trabalho atento sobre zonas de maior desconforto, sempre adaptado ao ritmo e sensibilidade de cada pessoa.",
+      "Acompanhamento delicado e personalizado para corpos com lipedema, respeitando sensibilidade, dor e necessidade de leveza.",
   },
   {
-    name: "Ritual de Bem-Estar",
-    detail: "Uma pausa mais envolvente",
+    name: "Drenagem Pós-Parto e Gravidez",
+    detail: "55€ · 60 min",
     description:
-      "Uma experiência mais envolvente, pensada para quem procura cuidado, presença e uma pausa profunda.",
+      "Drenagem linfática pensada para gravidez, pós-parto e fases em que o corpo precisa de cuidado atento e seguro.",
+  },
+];
+
+const priceGroups = [
+  {
+    title: "Drenagens",
+    items: [
+      { name: "Drenagem Linfática Manual", price: "65€", time: "60 min" },
+      { name: "Drenagem Linfática Pós-Operatório", price: "70€", time: "60 min" },
+      { name: "Drenagem Linfática Lipedema", price: "35€", time: "45 min" },
+      { name: "Drenagem Linfática Grávida Pós-Parto", price: "55€", time: "60 min" },
+      { name: "Drenagem Facial", price: "35€", time: "45 min" },
+      { name: "Drenagem Visceral", price: "35€", time: "45 min" },
+      { name: "Drenagem Linfática Cervical", price: "50€", time: "60 min" },
+      { name: "Drenagem zona membros inferiores ou abdómen", price: "30€", time: "45 min" },
+    ],
+  },
+  {
+    title: "Pós-operatório",
+    items: [
+      { name: "Consulta avaliação pré/pós-operatório", price: "25€", time: "30 min" },
+      { name: "Mini abdominoplastia ou cesariana", price: "40€", time: "45 min" },
+      { name: "Abdominoplastia clássica", price: "50€", time: "60 min" },
+      { name: "Lipoabdominoplastia", price: "70€", time: "90 min" },
+      { name: "Abdominoplastia circunferencial + lipo sacro", price: "70€", time: "90 min" },
+      { name: "Drenagem de cirurgia oncológica", price: "70€", time: "90 min" },
+      { name: "Pack pós-operatório", price: "500€", time: "10 sessões" },
+    ],
+  },
+  {
+    title: "Outros cuidados",
+    items: [
+      { name: "Limpeza de Pele", price: "55€", time: "60 min" },
+      { name: "Massagem Relaxamento", price: "50€", time: "60 min" },
+      { name: "Massagem Anti Stress", price: "45€", time: "60 min" },
+      { name: "Manta de Sudação", price: "20€", time: "45 min" },
+      { name: "Pack Harmonia", price: "300€", time: "6 sessões" },
+      { name: "Tapping pós-parto", price: "35€", time: "40 min" },
+      { name: "Dermaplaning", price: "40€", time: "60 min" },
+    ],
   },
 ];
 
@@ -258,6 +298,32 @@ function Treatments() {
             <p className="mt-5 text-base leading-7 text-stone-700">{treatment.description}</p>
           </article>
         ))}
+      </div>
+      <div className="mt-12 border-t border-stone-200 pt-10">
+        <div className="max-w-2xl">
+          <p className="section-kicker">Valores</p>
+          <h3 className="mt-4 font-serif text-3xl leading-tight text-stone-950 sm:text-4xl">
+            Preços de referência para marcação.
+          </h3>
+        </div>
+        <div className="mt-8 grid gap-8 lg:grid-cols-3">
+          {priceGroups.map((group) => (
+            <div key={group.title} className="border-t border-stone-300 pt-5">
+              <h4 className="font-serif text-2xl text-stone-950">{group.title}</h4>
+              <div className="mt-5 grid gap-4">
+                {group.items.map((item) => (
+                  <div key={item.name} className="grid grid-cols-[1fr_auto] gap-4 text-sm leading-6">
+                    <p className="text-stone-700">{item.name}</p>
+                    <p className="text-right font-medium text-stone-950">
+                      {item.price}
+                      <span className="block font-normal text-stone-500">{item.time}</span>
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="mt-10 flex flex-col items-start gap-4 border-t border-stone-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-xl text-sm leading-6 text-stone-600">
