@@ -5,10 +5,17 @@ import delicartProducts from "./assets/delicarte-products.jpg";
 import delicartReception from "./assets/delicarte-reception.jpg";
 import delicartTreatmentRoom from "./assets/delicarte-treatment-room.jpg";
 import oilDetail from "./assets/oil-detail.webp";
-import raquelAvatar from "./assets/raquel-avatar.jpg";
+import raquelPdfAvatar from "./assets/raquel-pdf-avatar.jpg";
+import raquelPdfPortrait from "./assets/raquel-pdf-portrait.jpg";
 import raquelPress from "./assets/raquel-press.jpg";
 
 const treatments = [
+  {
+    name: "Drenagem Linfática",
+    detail: "Pós-operatório, lipedema e gravidez",
+    description:
+      "Drenagem linfática terapêutica adaptada ao pós-operatório, ao lipedema e a fases em que o corpo precisa de recuperar com leveza, segurança e atenção.",
+  },
   {
     name: "Massagem Relaxante",
     detail: "Ideal para desacelerar",
@@ -20,12 +27,6 @@ const treatments = [
     detail: "Foco em zonas de desconforto",
     description:
       "Trabalho atento sobre zonas de maior desconforto, sempre adaptado ao ritmo e sensibilidade de cada pessoa.",
-  },
-  {
-    name: "Drenagem Linfática",
-    detail: "Leveza e bem-estar corporal",
-    description:
-      "Toques precisos e delicados para apoiar a sensação de leveza e bem-estar corporal.",
   },
   {
     name: "Ritual de Bem-Estar",
@@ -172,7 +173,7 @@ function Hero() {
         />
       </div>
       <div className="max-w-2xl lg:pl-8">
-        <p className="section-kicker">Massagens · bem-estar · cuidado corporal</p>
+        <p className="section-kicker">Drenagem linfática · pós-operatório · bem-estar</p>
         <h1 className="mt-5 font-serif text-5xl leading-[0.96] text-stone-950 sm:text-6xl lg:text-7xl">
           Delicarte
           <span className="mt-3 block text-3xl leading-tight text-stone-700 sm:text-4xl lg:text-5xl">
@@ -180,8 +181,8 @@ function Hero() {
           </span>
         </h1>
         <p className="mt-7 max-w-xl text-lg leading-8 text-stone-700">
-          Um espaço para regressar ao corpo com tempo, presença e delicadeza. Sessões pensadas para acolher,
-          aliviar e criar uma pausa verdadeira no ritmo dos dias.
+          Um espaço especializado em drenagem linfática terapêutica, pensado para apoiar o corpo no pós-operatório,
+          no lipedema, na gravidez e em momentos que pedem cuidado, presença e recuperação.
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <a className="button" href="https://wa.me/351915086116">
@@ -192,8 +193,8 @@ function Hero() {
           </a>
         </div>
         <div className="mt-8 grid gap-3 border-t border-stone-200 pt-6 text-sm leading-6 text-stone-600 sm:grid-cols-3">
-          <p>Linfoterapeuta</p>
-          <p>Sessões personalizadas</p>
+          <p>Drenagem linfática terapêutica</p>
+          <p>Pós-operatório, lipedema e gravidez</p>
           <p>Marcação direta com a Raquel</p>
         </div>
       </div>
@@ -208,11 +209,11 @@ function About() {
         <div className="grid gap-4">
           <img
             className="aspect-[4/5] w-full rounded-sm object-cover object-center md:h-[440px]"
-            src={delicartFacialTreatment}
-            alt="Tratamento facial num ambiente calmo e acolhedor"
+            src={raquelPdfPortrait}
+            alt="Retrato de Raquel Oliveira"
           />
           <div className="flex items-center gap-4 border-t border-stone-300 pt-4">
-            <img className="h-16 w-16 rounded-full object-cover" src={raquelAvatar} alt="Raquel Oliveira" />
+            <img className="h-16 w-16 rounded-full object-cover" src={raquelPdfAvatar} alt="Raquel Oliveira" />
             <div>
               <p className="font-serif text-xl text-stone-950">Raquel Oliveira</p>
               <p className="text-sm uppercase tracking-[0.16em] text-stone-500">Linfoterapeuta</p>
@@ -223,13 +224,17 @@ function About() {
           <p className="section-kicker">Olá, sou a Raquel</p>
           <h2 className="section-title">Cuidar também é saber escutar.</h2>
           <p className="copy">
-            Na Delicarte, cada tratamento é conduzido com atenção ao detalhe e respeito pelo momento em que se
-            encontra. A minha abordagem junta técnica, sensibilidade e uma presença tranquila, para que a sessão
-            não seja apenas uma marcação na agenda, mas um tempo seu.
+            Sou a Raquel Oliveira, linfoterapeuta especializada em drenagem linfática terapêutica, com foco no
+            pós-operatório, lipedema e acompanhamento na gravidez.
           </p>
           <p className="copy mt-5">
-            Trabalho com massagens e rituais corporais de forma personalizada, criando um ambiente discreto,
-            confortável e profundamente humano.
+            Na Delicarte, cada sessão é conduzida de forma personalizada, respeitando o momento, a sensibilidade e as
+            necessidades específicas de cada corpo. A minha abordagem combina técnica, cuidado e presença, criando um
+            acompanhamento próximo, confortável e seguro.
+          </p>
+          <p className="copy mt-5">
+            Quando o cuidado está ligado a uma cirurgia ou procedimento, o foco é a drenagem no pós-operatório, sempre
+            ajustada à fase de recuperação e à orientação clínica de cada pessoa.
           </p>
         </div>
       </div>
@@ -242,7 +247,7 @@ function Treatments() {
     <section id="tratamentos" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
       <div className="max-w-2xl">
         <p className="section-kicker">Tratamentos</p>
-        <h2 className="section-title">Escolha uma pausa com intenção.</h2>
+        <h2 className="section-title">Drenagens e cuidados adaptados ao seu corpo.</h2>
       </div>
       <div className="mt-12 grid gap-px overflow-hidden border border-stone-200 bg-stone-200 md:grid-cols-2">
         {treatments.map((treatment) => (
@@ -256,7 +261,8 @@ function Treatments() {
       </div>
       <div className="mt-10 flex flex-col items-start gap-4 border-t border-stone-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-xl text-sm leading-6 text-stone-600">
-          Não tem a certeza qual escolher? A sessão é ajustada ao que sente no dia.
+          Se está em pós-operatório ou tem uma indicação específica, a drenagem é ajustada ao seu momento e às
+          necessidades do corpo.
         </p>
         <a className="button button-secondary button-small" href="https://wa.me/351915086116">
           Falar com a Raquel
@@ -401,7 +407,9 @@ function FinalCta() {
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone-500">Telefone</p>
             <p className="mt-2">
-              915 086 116
+              <a className="nav-link text-stone-700 underline-offset-4 hover:underline" href="tel:+351915086116">
+                915 086 116
+              </a>
               <br />
               <span className="text-stone-500">(chamada para rede móvel nacional)</span>
             </p>
