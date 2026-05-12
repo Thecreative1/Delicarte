@@ -256,18 +256,17 @@ function About() {
           </div>
         </div>
         <div className="md:pl-10">
-          <p className="section-kicker">Olá, sou a Raquel</p>
           <h2 className="section-title">Cuidar também é saber escutar.</h2>
-          <p className="copy">
+          <p className="bio-copy mt-5">
             Sou a Raquel Oliveira, linfoterapeuta especializada em drenagem linfática terapêutica, com foco no
             pós-operatório, lipedema e acompanhamento na gravidez.
           </p>
-          <p className="copy mt-5">
+          <p className="bio-copy mt-5">
             Na Delicarte, cada sessão é conduzida de forma personalizada, respeitando o momento, a sensibilidade e as
             necessidades específicas de cada corpo. A minha abordagem combina técnica, cuidado e presença, criando um
             acompanhamento próximo, confortável e seguro.
           </p>
-          <p className="copy mt-5">
+          <p className="bio-copy mt-5">
             Quando o cuidado está ligado a uma cirurgia ou procedimento, o foco é a drenagem no pós-operatório, sempre
             ajustada à fase de recuperação e à orientação clínica de cada pessoa.
           </p>
