@@ -10,6 +10,9 @@ import raquelBrandingBio from "./assets/raquel-branding-bio.jpg";
 import raquelPdfAvatar from "./assets/raquel-pdf-avatar.jpg";
 import raquelPress from "./assets/raquel-press.jpg";
 
+const whatsappHref =
+  "https://wa.me/351917968714?text=Ol%C3%A1%20Raquel%2C%20gostaria%20de%20marcar%20uma%20sess%C3%A3o%20na%20Delicarte.";
+
 const serviceGroups = [
   {
     title: "Drenagem Linfática",
@@ -144,7 +147,7 @@ function Header() {
         </nav>
         <a
           className="header-whatsapp button button-small"
-          href="https://wa.me/351917968714"
+          href={whatsappHref}
         >
           Marcar pelo WhatsApp
         </a>
@@ -175,7 +178,7 @@ function Header() {
           <a className="nav-link" href="#contacto" onClick={closeMenu}>
             Contacto
           </a>
-          <a className="button mt-2" href="https://wa.me/351917968714" onClick={closeMenu}>
+          <a className="button mt-2" href={whatsappHref} onClick={closeMenu}>
             Marcar pelo WhatsApp
           </a>
         </nav>
@@ -207,7 +210,7 @@ function Hero() {
           no lipedema, na gravidez e em momentos que pedem cuidado, presença e recuperação.
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a className="button" href="https://wa.me/351917968714">
+          <a className="button" href={whatsappHref}>
             Marcar pelo WhatsApp
           </a>
           <a className="button button-secondary" href="#tratamentos">
@@ -432,7 +435,7 @@ function FinalCta() {
               </p>
             </div>
           </div>
-          <a className="button mt-9" href="https://wa.me/351917968714">
+          <a className="button mt-9" href={whatsappHref}>
             Marcar pelo WhatsApp
           </a>
         </div>
