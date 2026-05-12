@@ -1,6 +1,5 @@
 import { useState } from "react";
 import delicartFacialTreatment from "./assets/delicarte-facial-treatment.jpg";
-import delicartProducts from "./assets/delicarte-products.jpg";
 import delicartReception from "./assets/delicarte-reception.jpg";
 import delicartTreatmentRoom from "./assets/delicarte-treatment-room.jpg";
 import drainageAbdomen from "./assets/drainage-abdomen.jpg";
