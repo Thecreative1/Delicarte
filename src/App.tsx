@@ -162,7 +162,7 @@ function Header() {
         </nav>
         <a
           className="header-whatsapp button button-small"
-          href="https://wa.me/351915086116"
+          href="https://wa.me/351917968714"
         >
           Marcar pelo WhatsApp
         </a>
@@ -193,7 +193,7 @@ function Header() {
           <a className="nav-link" href="#contacto" onClick={closeMenu}>
             Contacto
           </a>
-          <a className="button mt-2" href="https://wa.me/351915086116" onClick={closeMenu}>
+          <a className="button mt-2" href="https://wa.me/351917968714" onClick={closeMenu}>
             Marcar pelo WhatsApp
           </a>
         </nav>
@@ -220,22 +220,17 @@ function Hero() {
             by Raquel Oliveira
           </span>
         </h1>
-        <p className="mt-7 max-w-xl text-lg leading-8 text-stone-700">
+        <p className="mt-7 max-w-xl text-base font-light leading-8 text-stone-600 sm:text-lg">
           Um espaço especializado em drenagem linfática terapêutica, pensado para apoiar o corpo no pós-operatório,
           no lipedema, na gravidez e em momentos que pedem cuidado, presença e recuperação.
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a className="button" href="https://wa.me/351915086116">
+          <a className="button" href="https://wa.me/351917968714">
             Marcar pelo WhatsApp
           </a>
           <a className="button button-secondary" href="#tratamentos">
             Ver tratamentos
           </a>
-        </div>
-        <div className="mt-8 grid gap-3 border-t border-stone-200 pt-6 text-sm leading-6 text-stone-600 sm:grid-cols-3">
-          <p>Drenagem linfática terapêutica</p>
-          <p>Pós-operatório, lipedema e gravidez</p>
-          <p>Marcação direta com a Raquel</p>
         </div>
       </div>
     </section>
@@ -248,7 +243,7 @@ function About() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[0.8fr_1fr] md:items-center lg:px-12 lg:py-24">
         <div className="grid gap-4">
           <img
-            className="aspect-[4/5] w-full rounded-sm object-cover object-center md:h-[440px]"
+            className="aspect-[4/5] w-full rounded-sm object-cover object-top md:h-[520px] md:object-[center_22%] lg:h-[540px]"
             src={raquelPdfPortrait}
             alt="Retrato de Raquel Oliveira"
           />
@@ -330,7 +325,7 @@ function Treatments() {
           Se está em pós-operatório ou tem uma indicação específica, a drenagem é ajustada ao seu momento e às
           necessidades do corpo.
         </p>
-        <a className="button button-secondary button-small" href="https://wa.me/351915086116">
+        <a className="button button-secondary button-small" href="https://wa.me/351917968714">
           Falar com a Raquel
         </a>
       </div>
@@ -473,15 +468,15 @@ function FinalCta() {
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone-500">Telefone</p>
             <p className="mt-2">
-              <a className="nav-link text-stone-700 underline-offset-4 hover:underline" href="tel:+351915086116">
-                915 086 116
+              <a className="nav-link text-stone-700 underline-offset-4 hover:underline" href="tel:+351917968714">
+                917 968 714
               </a>
               <br />
               <span className="text-stone-500">(chamada para rede móvel nacional)</span>
             </p>
           </div>
         </div>
-        <a className="button mt-9" href="https://wa.me/351915086116">
+        <a className="button mt-9" href="https://wa.me/351917968714">
           Marcar pelo WhatsApp
         </a>
       </div>
@@ -505,8 +500,8 @@ function Footer() {
             TikTok
           </a>
           <p className="text-stone-400">Atendimento por marcação</p>
-          <a className="footer-link" href="tel:+351915086116">
-            +351 915 086 116
+          <a className="footer-link" href="tel:+351917968714">
+            +351 917 968 714
           </a>
         </div>
       </div>
