@@ -88,6 +88,7 @@ function App() {
       <Experience />
       <Press />
       <Gallery />
+      <Instagram />
       <FinalCta />
       <Footer />
     </main>
@@ -119,8 +120,8 @@ function Header() {
           </a>
         </nav>
         <a
-          className="hidden min-h-10 items-center justify-center border border-stone-950 bg-stone-950 px-5 text-xs font-medium uppercase tracking-[0.16em] text-stone-50 transition duration-300 hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2 focus:ring-offset-stone-50 sm:inline-flex"
-          href="https://wa.me/351917968714"
+          className="header-whatsapp button button-small"
+          href="https://wa.me/351915086116"
         >
           Marcar pelo WhatsApp
         </a>
@@ -151,7 +152,7 @@ function Header() {
           <a className="nav-link" href="#contacto" onClick={closeMenu}>
             Contacto
           </a>
-          <a className="button mt-2" href="https://wa.me/351917968714" onClick={closeMenu}>
+          <a className="button mt-2" href="https://wa.me/351915086116" onClick={closeMenu}>
             Marcar pelo WhatsApp
           </a>
         </nav>
@@ -183,7 +184,7 @@ function Hero() {
           aliviar e criar uma pausa verdadeira no ritmo dos dias.
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a className="button" href="https://wa.me/351917968714">
+          <a className="button" href="https://wa.me/351915086116">
             Marcar pelo WhatsApp
           </a>
           <a className="button button-secondary" href="#tratamentos">
@@ -257,7 +258,7 @@ function Treatments() {
         <p className="max-w-xl text-sm leading-6 text-stone-600">
           Não tem a certeza qual escolher? A sessão é ajustada ao que sente no dia.
         </p>
-        <a className="button button-secondary button-small" href="https://wa.me/351917968714">
+        <a className="button button-secondary button-small" href="https://wa.me/351915086116">
           Falar com a Raquel
         </a>
       </div>
@@ -356,6 +357,27 @@ function Gallery() {
   );
 }
 
+function Instagram() {
+  return (
+    <section className="border-y border-stone-200 bg-[#f6f1ea]">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-14 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-12">
+        <div>
+          <p className="section-kicker">Instagram</p>
+          <h2 className="mt-4 font-serif text-3xl leading-tight text-stone-950 sm:text-4xl">
+            Siga-me no Instagram
+          </h2>
+        </div>
+        <a
+          className="button button-secondary button-small"
+          href="https://www.instagram.com/delicarte_raqueloliveira?igsh=eXBkN244eGFzdWRi&utm_source=qr"
+        >
+          Ver Instagram
+        </a>
+      </div>
+    </section>
+  );
+}
+
 function FinalCta() {
   return (
     <section id="contacto" className="border-y border-stone-200 bg-[#ebe1d6]">
@@ -365,9 +387,27 @@ function FinalCta() {
           Marque uma sessão e ofereça ao seu corpo um intervalo com presença.
         </h2>
         <p className="mt-6 max-w-2xl text-base leading-7 text-stone-700">
-          Para horários, disponibilidade e escolha do tratamento mais adequado, fale diretamente com a Raquel no WhatsApp.
+          Para horários, disponibilidade e escolha do tratamento mais adequado, fale diretamente através do WhatsApp.
         </p>
-        <a className="button mt-9" href="https://wa.me/351917968714">
+        <div className="mt-9 grid gap-5 text-sm leading-6 text-stone-700 sm:grid-cols-2">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone-500">Estúdio</p>
+            <p className="mt-2">
+              Rua Santa Eulália 778,
+              <br />
+              Fermentões, Guimarães
+            </p>
+          </div>
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone-500">Telefone</p>
+            <p className="mt-2">
+              915 086 116
+              <br />
+              <span className="text-stone-500">(chamada para rede móvel nacional)</span>
+            </p>
+          </div>
+        </div>
+        <a className="button mt-9" href="https://wa.me/351915086116">
           Marcar pelo WhatsApp
         </a>
       </div>
@@ -391,8 +431,8 @@ function Footer() {
             TikTok
           </a>
           <p className="text-stone-400">Atendimento por marcação</p>
-          <a className="footer-link" href="tel:+351917968714">
-            +351 917 968 714
+          <a className="footer-link" href="tel:+351915086116">
+            +351 915 086 116
           </a>
         </div>
       </div>
