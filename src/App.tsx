@@ -18,18 +18,15 @@ const serviceGroups = [
     title: "Drenagem Linfática",
     label: "Ver tipos e preços",
     description:
-      "Acompanhamento manual para pós-operatório, lipedema, gravidez/pós-parto, retenção e recuperação.",
+      "Acompanhamento manual para lipedema, gravidez/pós-parto, retenção, conforto corporal e recuperação.",
     items: [
       { name: "Drenagem Linfática Manual", price: "65€", time: "60 min" },
-      { name: "Drenagem Linfática Pós-Operatório", price: "70€", time: "60 min" },
       { name: "Drenagem Linfática Lipedema", price: "35€", time: "45 min" },
       { name: "Drenagem Linfática Grávida Pós-Parto", price: "55€", time: "60 min" },
       { name: "Drenagem Facial", price: "35€", time: "45 min" },
       { name: "Drenagem Visceral", price: "35€", time: "45 min" },
       { name: "Drenagem Linfática Cervical", price: "50€", time: "60 min" },
       { name: "Drenagem zona membros inferiores ou abdómen", price: "30€", time: "45 min" },
-      { name: "Drenagem de cirurgia oncológica", price: "70€", time: "90 min" },
-      { name: "Pack pós-operatório", price: "500€", time: "10 sessões" },
     ],
   },
   {
@@ -39,10 +36,13 @@ const serviceGroups = [
       "Quando existe cirurgia ou procedimento, o tratamento é apresentado como drenagem nesse pós-operatório.",
     items: [
       { name: "Consulta avaliação pré/pós-operatório", price: "25€", time: "30 min" },
+      { name: "Drenagem Linfática Pós-Operatório", price: "70€", time: "60 min" },
       { name: "Mini abdominoplastia ou cesariana", price: "40€", time: "45 min" },
       { name: "Abdominoplastia clássica", price: "50€", time: "60 min" },
       { name: "Lipoabdominoplastia", price: "70€", time: "90 min" },
       { name: "Abdominoplastia circunferencial + lipo sacro", price: "70€", time: "90 min" },
+      { name: "Drenagem de cirurgia oncológica", price: "70€", time: "90 min" },
+      { name: "Pack pós-operatório", price: "500€", time: "10 sessões" },
     ],
   },
   {
