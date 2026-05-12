@@ -1,4 +1,5 @@
 import { useState } from "react";
+import creamDetail from "./assets/cream-detail.webp";
 import delicartFacialTreatment from "./assets/delicarte-facial-treatment.jpg";
 import delicartReception from "./assets/delicarte-reception.jpg";
 import delicartTreatmentRoom from "./assets/delicarte-treatment-room.jpg";
@@ -93,6 +94,10 @@ const galleryImages = [
   {
     src: delicartFacialTreatment,
     alt: "Tratamento realizado no espaço Delicarte",
+  },
+  {
+    src: creamDetail,
+    alt: "Detalhe de creme usado nos cuidados Delicarte",
   },
 ];
 
@@ -287,15 +292,6 @@ function Treatments() {
           </details>
         ))}
       </div>
-      <div className="mt-10 flex flex-col items-start gap-4 border-t border-stone-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
-        <p className="max-w-xl text-sm leading-6 text-stone-600">
-          Se está em pós-operatório ou tem uma indicação específica, a drenagem é ajustada ao seu momento e às
-          necessidades do corpo.
-        </p>
-        <a className="button button-secondary button-small" href="https://wa.me/351917968714">
-          Falar com a Raquel
-        </a>
-      </div>
     </section>
   );
 }
@@ -414,11 +410,16 @@ function FinalCta() {
           <div className="mt-14 grid gap-7 text-lg leading-tight text-stone-700">
             <div>
               <p className="font-medium text-stone-600">Estúdio</p>
-              <p className="mt-1">
+              <a
+                className="nav-link mt-1 block text-stone-700 underline-offset-4 hover:underline"
+                href="https://www.google.com/maps/search/?api=1&query=Rua%20Santa%20Eul%C3%A1lia%20778%2C%20Ferment%C3%B5es%2C%20Guimar%C3%A3es"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Rua Santa Eulália 778,
                 <br />
                 Fermentões Guimarães
-              </p>
+              </a>
             </div>
             <div>
               <p className="font-medium text-stone-600">Telefone</p>
