@@ -1,44 +1,23 @@
 import { useState } from "react";
 import creamDetail from "./assets/cream-detail.webp";
-import delicartFacialTreatment from "./assets/delicarte-facial-treatment.jpg";
 import delicartProducts from "./assets/delicarte-products.jpg";
-import delicartReception from "./assets/delicarte-reception.jpg";
 import delicartTreatmentRoom from "./assets/delicarte-treatment-room.jpg";
+import drainageAbdomen from "./assets/drainage-abdomen.jpg";
+import drainageLeg from "./assets/drainage-leg.jpg";
+import greenFeather from "./assets/green-feather.jpg";
 import oilDetail from "./assets/oil-detail.webp";
+import raquelBrandingBio from "./assets/raquel-branding-bio.jpg";
 import raquelPdfAvatar from "./assets/raquel-pdf-avatar.jpg";
-import raquelPdfPortrait from "./assets/raquel-pdf-portrait.jpg";
 import raquelPress from "./assets/raquel-press.jpg";
+import softHands from "./assets/soft-hands.jpg";
+import studioCorner from "./assets/studio-corner.webp";
 
-const treatments = [
+const serviceGroups = [
   {
-    name: "Drenagem Linfática Pós-Operatório",
-    detail: "Terapia intensiva · 70€ · 60 min",
+    title: "Drenagem Linfática",
+    label: "Ver tipos e preços",
     description:
-      "Drenagem linfática terapêutica para acompanhar a recuperação depois de cirurgia ou procedimento, sempre ajustada à fase do corpo.",
-  },
-  {
-    name: "Drenagem Linfática Manual",
-    detail: "65€ · 60 min",
-    description:
-      "Trabalho manual cuidado para apoiar a circulação linfática, reduzir sensação de peso e promover conforto corporal.",
-  },
-  {
-    name: "Drenagem Linfática Lipedema",
-    detail: "35€ · 45 min",
-    description:
-      "Acompanhamento delicado e personalizado para corpos com lipedema, respeitando sensibilidade, dor e necessidade de leveza.",
-  },
-  {
-    name: "Drenagem Pós-Parto e Gravidez",
-    detail: "55€ · 60 min",
-    description:
-      "Drenagem linfática pensada para gravidez, pós-parto e fases em que o corpo precisa de cuidado atento e seguro.",
-  },
-];
-
-const priceGroups = [
-  {
-    title: "Drenagens",
+      "Acompanhamento manual para pós-operatório, lipedema, gravidez/pós-parto, retenção e recuperação.",
     items: [
       { name: "Drenagem Linfática Manual", price: "65€", time: "60 min" },
       { name: "Drenagem Linfática Pós-Operatório", price: "70€", time: "60 min" },
@@ -48,22 +27,28 @@ const priceGroups = [
       { name: "Drenagem Visceral", price: "35€", time: "45 min" },
       { name: "Drenagem Linfática Cervical", price: "50€", time: "60 min" },
       { name: "Drenagem zona membros inferiores ou abdómen", price: "30€", time: "45 min" },
+      { name: "Drenagem de cirurgia oncológica", price: "70€", time: "90 min" },
+      { name: "Pack pós-operatório", price: "500€", time: "10 sessões" },
     ],
   },
   {
-    title: "Pós-operatório",
+    title: "Drenagem no Pós-Operatório",
+    label: "Ver cirurgias e valores",
+    description:
+      "Quando existe cirurgia ou procedimento, o tratamento é apresentado como drenagem nesse pós-operatório.",
     items: [
       { name: "Consulta avaliação pré/pós-operatório", price: "25€", time: "30 min" },
       { name: "Mini abdominoplastia ou cesariana", price: "40€", time: "45 min" },
       { name: "Abdominoplastia clássica", price: "50€", time: "60 min" },
       { name: "Lipoabdominoplastia", price: "70€", time: "90 min" },
       { name: "Abdominoplastia circunferencial + lipo sacro", price: "70€", time: "90 min" },
-      { name: "Drenagem de cirurgia oncológica", price: "70€", time: "90 min" },
-      { name: "Pack pós-operatório", price: "500€", time: "10 sessões" },
     ],
   },
   {
     title: "Outros cuidados",
+    label: "Ver valores",
+    description:
+      "Tratamentos complementares disponíveis por marcação direta com a Raquel.",
     items: [
       { name: "Limpeza de Pele", price: "55€", time: "60 min" },
       { name: "Massagem Relaxamento", price: "50€", time: "60 min" },
@@ -93,12 +78,20 @@ const experience = [
 
 const galleryImages = [
   {
-    src: delicartTreatmentRoom,
-    alt: "Sala Delicarte preparada para uma sessão de cuidado corporal",
+    src: drainageAbdomen,
+    alt: "Drenagem linfática realizada em marquesa",
   },
   {
-    src: delicartFacialTreatment,
-    alt: "Tratamento facial realizado com movimentos delicados",
+    src: drainageLeg,
+    alt: "Drenagem linfática nos membros inferiores",
+  },
+  {
+    src: softHands,
+    alt: "Detalhe de mãos associado ao cuidado manual",
+  },
+  {
+    src: studioCorner,
+    alt: "Detalhe acolhedor do estúdio Delicarte",
   },
   {
     src: delicartProducts,
@@ -111,10 +104,6 @@ const galleryImages = [
   {
     src: creamDetail,
     alt: "Textura de creme de cuidado corporal",
-  },
-  {
-    src: delicartReception,
-    alt: "Receção luminosa do espaço Delicarte",
   },
 ];
 
@@ -129,7 +118,6 @@ function App() {
       <Experience />
       <Press />
       <Gallery />
-      <Instagram />
       <FinalCta />
       <Footer />
     </main>
@@ -244,7 +232,7 @@ function About() {
         <div className="grid gap-4">
           <img
             className="aspect-[4/5] w-full rounded-sm object-cover object-top md:h-[520px] md:object-[center_22%] lg:h-[540px]"
-            src={raquelPdfPortrait}
+            src={raquelBrandingBio}
             alt="Retrato de Raquel Oliveira"
           />
           <div className="flex items-center gap-4 border-t border-stone-300 pt-4">
@@ -283,41 +271,32 @@ function Treatments() {
         <p className="section-kicker">Tratamentos</p>
         <h2 className="section-title">Drenagens e cuidados adaptados ao seu corpo.</h2>
       </div>
-      <div className="mt-12 grid gap-px overflow-hidden border border-stone-200 bg-stone-200 md:grid-cols-2">
-        {treatments.map((treatment) => (
-          <article key={treatment.name} className="bg-stone-50 p-8 transition duration-300 hover:bg-[#f4eee6] sm:p-10">
-            <span className="block h-px w-12 bg-stone-500" />
-            <h3 className="mt-8 font-serif text-3xl text-stone-950">{treatment.name}</h3>
-            <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-stone-500">{treatment.detail}</p>
-            <p className="mt-5 text-base leading-7 text-stone-700">{treatment.description}</p>
-          </article>
-        ))}
-      </div>
-      <div className="mt-12 border-t border-stone-200 pt-10">
-        <div className="max-w-2xl">
-          <p className="section-kicker">Valores</p>
-          <h3 className="mt-4 font-serif text-3xl leading-tight text-stone-950 sm:text-4xl">
-            Preços de referência para marcação.
-          </h3>
-        </div>
-        <div className="mt-8 grid gap-8 lg:grid-cols-3">
-          {priceGroups.map((group) => (
-            <div key={group.title} className="border-t border-stone-300 pt-5">
-              <h4 className="font-serif text-2xl text-stone-950">{group.title}</h4>
-              <div className="mt-5 grid gap-4">
-                {group.items.map((item) => (
-                  <div key={item.name} className="grid grid-cols-[1fr_auto] gap-4 text-sm leading-6">
-                    <p className="text-stone-700">{item.name}</p>
-                    <p className="text-right font-medium text-stone-950">
-                      {item.price}
-                      <span className="block font-normal text-stone-500">{item.time}</span>
-                    </p>
-                  </div>
-                ))}
+      <div className="mt-12 grid gap-4">
+        {serviceGroups.map((group) => (
+          <details key={group.title} className="group border border-stone-200 bg-stone-50 p-6 sm:p-8">
+            <summary className="service-summary flex cursor-pointer list-none flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+              <div className="max-w-2xl">
+                <span className="block h-px w-12 bg-stone-500" />
+                <h3 className="mt-7 font-serif text-3xl text-stone-950 sm:text-4xl">{group.title}</h3>
+                <p className="mt-4 text-base leading-7 text-stone-700">{group.description}</p>
               </div>
+              <span className="inline-flex min-h-10 shrink-0 items-center justify-center border border-stone-300 bg-white/50 px-4 text-xs font-medium uppercase tracking-[0.14em] text-stone-700">
+                {group.label}
+              </span>
+            </summary>
+            <div className="mt-8 grid gap-3 border-t border-stone-200 pt-6">
+              {group.items.map((item) => (
+                <div key={item.name} className="grid grid-cols-[1fr_auto] gap-4 text-sm leading-6">
+                  <p className="text-stone-700">{item.name}</p>
+                  <p className="text-right font-medium text-stone-950">
+                    {item.price}
+                    <span className="block font-normal text-stone-500">{item.time}</span>
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </details>
+        ))}
       </div>
       <div className="mt-10 flex flex-col items-start gap-4 border-t border-stone-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-xl text-sm leading-6 text-stone-600">
@@ -339,13 +318,14 @@ function Editorial() {
         <div className="relative min-h-[78vh] overflow-hidden sm:rounded-sm md:min-h-[680px]">
           <img
             className="absolute inset-0 h-full w-full object-cover object-center"
-            src={delicartReception}
-            alt="Receção luminosa do espaço Delicarte"
+            src={greenFeather}
+            alt="Textura verde suave associada a pausa e cuidado"
           />
-          <div className="absolute inset-0 bg-stone-950/28" />
-          <div className="relative flex min-h-[78vh] items-end px-5 pb-16 pt-24 sm:px-8 md:min-h-[680px] md:p-12">
-            <p className="max-w-2xl font-serif text-3xl leading-tight text-stone-50 sm:text-5xl">
-              O corpo também precisa de lugares onde possa pousar.
+          <div className="absolute inset-0 bg-stone-950/35" />
+          <div className="relative flex min-h-[78vh] items-center justify-center px-5 py-16 text-center sm:px-8 md:min-h-[680px] md:p-12">
+            <p className="max-w-3xl text-3xl font-light leading-tight text-stone-50 sm:text-5xl">
+              O <span className="font-medium">corpo</span> também precisa de lugares onde possa fazer uma{" "}
+              <span className="font-medium">pausa.</span>
             </p>
           </div>
         </div>
@@ -405,9 +385,20 @@ function Press() {
 function Gallery() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
-      <div className="mb-10 max-w-2xl">
-        <p className="section-kicker">O espaço</p>
-        <h2 className="section-title">Detalhes reais de uma experiência tranquila.</h2>
+      <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="max-w-2xl">
+          <p className="section-kicker">Instagram</p>
+          <h2 className="section-title">Siga-me no Instagram</h2>
+          <p className="copy mt-5">
+            Alguns detalhes reais do cuidado, do espaço e das drenagens, reunidos com o mesmo tom calmo da página.
+          </p>
+        </div>
+        <a
+          className="button button-secondary button-small"
+          href="https://www.instagram.com/delicarte_raqueloliveira?igsh=eXBkN244eGFzdWRi&utm_source=qr"
+        >
+          Ver Instagram
+        </a>
       </div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {galleryImages.map((image) => (
@@ -423,61 +414,55 @@ function Gallery() {
   );
 }
 
-function Instagram() {
-  return (
-    <section className="border-y border-stone-200 bg-[#f6f1ea]">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-14 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-12">
-        <div>
-          <p className="section-kicker">Instagram</p>
-          <h2 className="mt-4 font-serif text-3xl leading-tight text-stone-950 sm:text-4xl">
-            Siga-me no Instagram
-          </h2>
-        </div>
-        <a
-          className="button button-secondary button-small"
-          href="https://www.instagram.com/delicarte_raqueloliveira?igsh=eXBkN244eGFzdWRi&utm_source=qr"
-        >
-          Ver Instagram
-        </a>
-      </div>
-    </section>
-  );
-}
-
 function FinalCta() {
   return (
     <section id="contacto" className="border-y border-stone-200 bg-[#ebe1d6]">
-      <div className="mx-auto flex max-w-5xl flex-col items-center px-5 py-16 text-center sm:px-8 lg:py-24">
-        <p className="section-kicker">Contacto</p>
-        <h2 className="mt-5 max-w-3xl font-serif text-4xl leading-tight text-stone-950 sm:text-5xl">
-          Marque uma sessão e ofereça ao seu corpo um intervalo com presença.
-        </h2>
-        <p className="mt-6 max-w-2xl text-base leading-7 text-stone-700">
-          Para horários, disponibilidade e escolha do tratamento mais adequado, fale diretamente através do WhatsApp.
-        </p>
-        <div className="mt-9 grid gap-5 text-sm leading-6 text-stone-700 sm:grid-cols-2">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone-500">Estúdio</p>
-            <p className="mt-2">
-              Rua Santa Eulália 778,
-              <br />
-              Fermentões, Guimarães
-            </p>
-          </div>
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone-500">Telefone</p>
-            <p className="mt-2">
-              <a className="nav-link text-stone-700 underline-offset-4 hover:underline" href="tel:+351917968714">
-                917 968 714
-              </a>
-              <br />
-              <span className="text-stone-500">(chamada para rede móvel nacional)</span>
-            </p>
-          </div>
+      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="section-kicker">Contacto</p>
+          <h2 className="mt-5 font-serif text-4xl leading-tight text-stone-950 sm:text-5xl">
+            Marque uma sessão e ofereça ao seu corpo um intervalo com presença.
+          </h2>
+          <p className="mt-6 text-base leading-7 text-stone-700">
+            Para horários, disponibilidade e escolha do tratamento mais adequado, fale diretamente através do WhatsApp.
+          </p>
         </div>
-        <a className="button mt-9" href="https://wa.me/351917968714">
-          Marcar pelo WhatsApp
-        </a>
+        <div className="mt-10 grid overflow-hidden border border-stone-200 bg-stone-50 md:grid-cols-[1fr_0.9fr]">
+          <div className="p-7 sm:p-10">
+            <p className="section-kicker">Estúdio</p>
+            <h3 className="mt-5 font-serif text-3xl leading-tight text-stone-950">
+              Um ambiente preparado para acompanhar o corpo com conforto, atenção e cuidado especializado.
+            </h3>
+            <div className="mt-8 grid gap-6 text-sm leading-6 text-stone-700 sm:grid-cols-2">
+              <div>
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone-500">Morada</p>
+                <p className="mt-2">
+                  Rua Santa Eulália 778,
+                  <br />
+                  Fermentões, Guimarães
+                </p>
+              </div>
+              <div>
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone-500">Telefone</p>
+                <p className="mt-2">
+                  <a className="nav-link text-stone-700 underline-offset-4 hover:underline" href="tel:+351917968714">
+                    917 968 714
+                  </a>
+                  <br />
+                  <span className="text-stone-500">(chamada para rede móvel nacional)</span>
+                </p>
+              </div>
+            </div>
+            <a className="button mt-9" href="https://wa.me/351917968714">
+              Marcar pelo WhatsApp
+            </a>
+          </div>
+          <img
+            className="h-full min-h-[320px] w-full object-cover object-center"
+            src={studioCorner}
+            alt="Detalhe acolhedor do estúdio Delicarte"
+          />
+        </div>
       </div>
     </section>
   );

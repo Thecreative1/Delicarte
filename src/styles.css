@@ -94,6 +94,10 @@ img {
   @apply text-stone-300 hover:text-stone-50;
 }
 
+.service-summary::-webkit-details-marker {
+  display: none;
+}
+
 .header-whatsapp {
   display: none;
 }
