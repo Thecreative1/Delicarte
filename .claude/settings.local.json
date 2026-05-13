@@ -3,7 +3,9 @@
     "allow": [
       "WebFetch(domain:delicarte.pt)",
       "WebFetch(domain:thecreative1.github.io)",
-      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Prive\\\\Desktop\\\\Delicarte\\\\public\" | ForEach-Object { $_.Name })"
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Prive\\\\Desktop\\\\Delicarte\\\\public\" | ForEach-Object { $_.Name })",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:estudiofm.pt)"
     ]
   }
 }
