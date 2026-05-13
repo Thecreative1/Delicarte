@@ -501,17 +501,31 @@ function Footer() {
           <p className="font-serif text-2xl text-stone-50">Delicarte</p>
           <p className="mt-3 text-stone-400">by Raquel Oliveira</p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <a className="footer-link" href={instagramHref} target="_blank" rel="noopener noreferrer">
-            Instagram
-          </a>
-          <a className="footer-link" href={tiktokHref} target="_blank" rel="noopener noreferrer">
-            TikTok
-          </a>
-          <p className="text-stone-400">Atendimento por marcação</p>
-          <a className="footer-link" href="tel:+351917968714">
-            +351 917 968 714
-          </a>
+        <div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <a className="footer-link" href={instagramHref} target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+            <a className="footer-link" href={tiktokHref} target="_blank" rel="noopener noreferrer">
+              TikTok
+            </a>
+            <p className="text-stone-400">Atendimento por marcação</p>
+            <a className="footer-link" href="tel:+351917968714">
+              +351 917 968 714
+            </a>
+          </div>
+          <p className="mt-8 text-xs leading-6 text-stone-500">
+            © 2026 Delicarte. Website desenvolvido por{" "}
+            <a
+              className="footer-link text-stone-400"
+              href="https://thecreative1.github.io/Estudio-Flavio-Martins/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Estúdio Flávio Martins
+            </a>
+            .
+          </p>
         </div>
       </div>
     </footer>
