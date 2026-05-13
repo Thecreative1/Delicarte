@@ -12,6 +12,9 @@ import raquelPress from "./assets/raquel-press.jpg";
 
 const whatsappHref =
   "https://wa.me/351917968714?text=Ol%C3%A1%20Raquel%2C%20gostaria%20de%20marcar%20uma%20sess%C3%A3o%20na%20Delicarte.";
+const instagramHref = "https://www.instagram.com/delicarte_raqueloliveira";
+const tiktokHref = "https://www.tiktok.com/@delicarte_raqueloliveira";
+const heroTreatmentRoom = "/delicarte-treatment-room.jpg";
 
 const serviceGroups = [
   {
@@ -80,26 +83,38 @@ const experience = [
 const galleryImages = [
   {
     src: drainageAbdomen,
+    width: 1350,
+    height: 1800,
     alt: "Drenagem linfática realizada em marquesa",
   },
   {
     src: drainageLeg,
+    width: 1350,
+    height: 1800,
     alt: "Drenagem linfática nos membros inferiores",
   },
   {
     src: delicartTreatmentRoom,
+    width: 712,
+    height: 885,
     alt: "Sala Delicarte preparada para uma sessão de cuidado corporal",
   },
   {
     src: delicartReception,
+    width: 715,
+    height: 894,
     alt: "Receção luminosa do espaço Delicarte",
   },
   {
     src: delicartFacialTreatment,
+    width: 716,
+    height: 890,
     alt: "Tratamento realizado no espaço Delicarte",
   },
   {
     src: creamDetail,
+    width: 512,
+    height: 512,
     alt: "Detalhe de creme usado nos cuidados Delicarte",
   },
 ];
@@ -193,7 +208,10 @@ function Hero() {
       <div className="relative aspect-[4/5] overflow-hidden rounded-sm sm:aspect-[16/11] lg:aspect-auto lg:min-h-[620px]">
         <img
           className="h-full w-full object-cover object-center"
-          src={delicartTreatmentRoom}
+          src={heroTreatmentRoom}
+          width={712}
+          height={885}
+          fetchPriority="high"
           alt="Sala Delicarte preparada para uma sessão de cuidado corporal"
         />
       </div>
@@ -230,10 +248,20 @@ function About() {
           <img
             className="aspect-[4/5] w-full rounded-sm object-cover object-top md:h-[520px] md:object-[center_22%] lg:h-[540px]"
             src={raquelBrandingBio}
+            width={1600}
+            height={2400}
+            loading="lazy"
             alt="Retrato de Raquel Oliveira"
           />
           <div className="flex items-center gap-4 border-t border-stone-300 pt-4">
-            <img className="h-16 w-16 rounded-full object-cover" src={raquelPdfAvatar} alt="Raquel Oliveira" />
+            <img
+              className="h-16 w-16 rounded-full object-cover"
+              src={raquelPdfAvatar}
+              width={214}
+              height={320}
+              loading="lazy"
+              alt="Raquel Oliveira"
+            />
             <div>
               <p className="font-serif text-xl text-stone-950">Raquel Oliveira</p>
               <p className="text-sm uppercase tracking-[0.16em] text-stone-500">Linfoterapeuta</p>
@@ -307,6 +335,9 @@ function Editorial() {
           <img
             className="absolute inset-0 h-full w-full object-cover object-center"
             src={greenFeather}
+            width={736}
+            height={1308}
+            loading="lazy"
             alt="Textura verde suave associada a pausa e cuidado"
           />
           <div className="absolute inset-0 bg-stone-950/35" />
@@ -362,6 +393,9 @@ function Press() {
           <img
             className="mx-auto max-h-[430px] w-full max-w-xs rounded-sm object-cover object-top"
             src={raquelPress}
+            width={746}
+            height={890}
+            loading="lazy"
             alt="Publicação sobre Raquel Oliveira na Revista Spot"
           />
         </div>
@@ -383,7 +417,9 @@ function Gallery() {
         </div>
         <a
           className="button button-secondary button-small"
-          href="https://www.instagram.com/delicarte_raqueloliveira?igsh=eXBkN244eGFzdWRi&utm_source=qr"
+          href={instagramHref}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Ver Instagram
         </a>
@@ -394,6 +430,9 @@ function Gallery() {
             key={image.src}
             className="aspect-[4/5] w-full rounded-sm object-cover"
             src={image.src}
+            width={image.width}
+            height={image.height}
+            loading="lazy"
             alt={image.alt}
           />
         ))}
@@ -421,7 +460,7 @@ function FinalCta() {
               >
                 Rua Santa Eulália 778,
                 <br />
-                Fermentões Guimarães
+                Fermentões, Guimarães
               </a>
             </div>
             <div>
@@ -443,6 +482,9 @@ function FinalCta() {
           <img
             className="aspect-[4/3] w-full object-cover object-center"
             src={delicartTreatmentRoom}
+            width={712}
+            height={885}
+            loading="lazy"
             alt="Detalhe acolhedor do estúdio Delicarte"
           />
         </div>
@@ -460,10 +502,10 @@ function Footer() {
           <p className="mt-3 text-stone-400">by Raquel Oliveira</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <a className="footer-link" href="https://www.instagram.com/delicarte_raqueloliveira?igsh=eXBkN244eGFzdWRi&utm_source=qr">
+          <a className="footer-link" href={instagramHref} target="_blank" rel="noopener noreferrer">
             Instagram
           </a>
-          <a className="footer-link" href="https://www.tiktok.com/@delicarte_raqueloliveira?_r=1&_t=ZG-96HUYGMbPbF">
+          <a className="footer-link" href={tiktokHref} target="_blank" rel="noopener noreferrer">
             TikTok
           </a>
           <p className="text-stone-400">Atendimento por marcação</p>

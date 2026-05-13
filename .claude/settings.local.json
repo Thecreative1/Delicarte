@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:delicarte.pt)",
+      "WebFetch(domain:thecreative1.github.io)"
+    ]
+  }
+}
