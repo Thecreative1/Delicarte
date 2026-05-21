@@ -17,6 +17,8 @@ const tiktokHref = "https://www.tiktok.com/@delicarte_raqueloliveira";
 const heroTreatmentRoom = "/delicarte-treatment-room.jpg";
 const drainagePagePath = "/tratamentos/drenagem-linfatica-guimaraes/";
 const drainagePageCanonical = "https://delicarte.pt/tratamentos/drenagem-linfatica-guimaraes/";
+const postoperativePagePath = "/tratamentos/drenagem-pos-operatorio-guimaraes/";
+const postoperativePageCanonical = "https://delicarte.pt/tratamentos/drenagem-pos-operatorio-guimaraes/";
 
 const homeMeta = {
   title: "Delicarte | Drenagem Linfática em Guimarães | Raquel Oliveira",
@@ -28,8 +30,15 @@ const homeMeta = {
 const drainagePageMeta = {
   title: "Drenagem Linfática em Guimarães | Delicarte",
   description:
-    "Conheça a drenagem linfática na Delicarte, em Guimarães: para quem pode ser indicada, como decorre a sessão, cuidados, precauções, FAQs e marcação.",
+    "Conheça a drenagem linfática na Delicarte, em Guimarães: para quem pode ser indicada, como decorre a sessão, cuidados, precauções, perguntas frequentes e marcação.",
   canonical: drainagePageCanonical,
+};
+
+const postoperativePageMeta = {
+  title: "Drenagem Pós-Operatório em Guimarães | Delicarte",
+  description:
+    "Drenagem no pós-operatório na Delicarte, em Guimarães: acompanhamento manual, fases de recuperação, cuidados, precauções, perguntas frequentes, preços e marcação.",
+  canonical: postoperativePageCanonical,
 };
 
 type ServiceGroup = {
@@ -72,6 +81,10 @@ const serviceGroups: ServiceGroup[] = [
     label: "Ver cirurgias e valores",
     description:
       "Quando existe cirurgia ou procedimento, o tratamento é apresentado como drenagem nesse pós-operatório.",
+    secondaryCta: {
+      label: "Saber mais sobre Drenagem no Pós-Operatório",
+      href: postoperativePagePath,
+    },
     items: [
       { name: "Consulta avaliação pré/pós-operatório", price: "25€", time: "30 min" },
       { name: "Drenagem Linfática Pós-Operatório", price: "70€", time: "60 min" },
@@ -227,8 +240,98 @@ const drainageFaqs = [
   },
 ];
 
-function isDrainageTreatmentPath(pathname: string) {
-  return pathname.replace(/\/+$/, "").endsWith("/tratamentos/drenagem-linfatica-guimaraes");
+const postoperativeIndications = [
+  {
+    title: "Recuperação com orientação clínica",
+    text: "Pode fazer sentido depois de uma cirurgia ou procedimento, respeitando sempre a fase de recuperação e as indicações recebidas pela equipa médica.",
+  },
+  {
+    title: "Edema, tensão e desconforto",
+    text: "O trabalho manual é adaptado para apoiar o conforto corporal quando existe sensação de inchaço, peso ou tensão nos tecidos.",
+  },
+  {
+    title: "Cirurgias abdominais e corporais",
+    text: "Pode acompanhar processos como cesariana, abdominoplastia, lipoabdominoplastia ou outros procedimentos, sempre com cuidado individual.",
+  },
+  {
+    title: "Acompanhamento por fases",
+    text: "A frequência e o tipo de sessão são ajustados ao momento da recuperação, à sensibilidade e à evolução observada em cada marcação.",
+  },
+];
+
+const postoperativeSessionSteps = [
+  {
+    title: "Contexto e segurança",
+    text: "Começamos por perceber a cirurgia, a fase de recuperação, os cuidados médicos indicados e qualquer sintoma que exija atenção.",
+  },
+  {
+    title: "Toque adaptado",
+    text: "A drenagem é feita com movimentos suaves e precisos, sem pressão agressiva e sem forçar tecidos sensíveis.",
+  },
+  {
+    title: "Respeito por cicatrizes e pensos",
+    text: "Não mexemos em feridas, drenos, pontos ou pensos. O trabalho acompanha o corpo sem substituir cuidados médicos.",
+  },
+  {
+    title: "Reavaliação contínua",
+    text: "Em cada sessão, ajustamos zonas, ritmo e frequência ao conforto, à resposta do corpo e à fase da recuperação.",
+  },
+];
+
+const postoperativePrecautions = [
+  "Febre, infeção, vermelhidão intensa, calor local, sangramento ou dor súbita devem ser avaliados antes da sessão.",
+  "Suspeita de trombose, falta de ar, dor no peito ou edema inesperado exigem avaliação médica urgente.",
+  "Se existem drenos, pontos, feridas abertas ou pensos, respeitamos essas zonas e seguimos a orientação clínica recebida.",
+  "A drenagem no pós-operatório não substitui consultas, medicação, compressão, pensos ou acompanhamento da equipa médica.",
+];
+
+const postoperativeFaqs = [
+  {
+    question: "Quando posso começar a drenagem depois da cirurgia?",
+    answer:
+      "Depende do tipo de cirurgia, da fase de recuperação e da orientação clínica. Antes de começar, percebemos em conjunto se é o momento certo e se existe algum cuidado especial.",
+  },
+  {
+    question: "A drenagem no pós-operatório dói?",
+    answer:
+      "Não deve ser dolorosa. O toque é suave, cuidadoso e ajustado à sensibilidade de cada fase da recuperação.",
+  },
+  {
+    question: "Trabalhamos sobre cicatrizes, pontos ou drenos?",
+    answer:
+      "Não forçamos zonas sensíveis nem mexemos em feridas, pontos, drenos ou pensos. O tratamento respeita sempre os limites de segurança.",
+  },
+  {
+    question: "Que cirurgias podem ser acompanhadas?",
+    answer:
+      "Podem ser acompanhadas situações como cesariana, abdominoplastia, lipoabdominoplastia e outros procedimentos, desde que seja adequado ao caso e à fase de recuperação.",
+  },
+  {
+    question: "Quantas sessões são necessárias?",
+    answer:
+      "Depende do procedimento, do edema, da resposta do corpo e do objetivo. Na primeira sessão, percebemos em conjunto uma frequência possível.",
+  },
+  {
+    question: "Como faço a marcação?",
+    answer:
+      "A marcação é feita por WhatsApp, para confirmar disponibilidade, explicar o contexto da cirurgia e perceber se existe alguma indicação prévia importante.",
+  },
+];
+
+type PageKind = "home" | "drainage" | "postoperative";
+
+function getPageKind(pathname: string): PageKind {
+  const normalizedPath = pathname.replace(/\/+$/, "");
+
+  if (normalizedPath.endsWith("/tratamentos/drenagem-linfatica-guimaraes")) {
+    return "drainage";
+  }
+
+  if (normalizedPath.endsWith("/tratamentos/drenagem-pos-operatorio-guimaraes")) {
+    return "postoperative";
+  }
+
+  return "home";
 }
 
 function usePageMeta(meta: typeof homeMeta) {
@@ -251,13 +354,22 @@ function usePageMeta(meta: typeof homeMeta) {
 }
 
 function App() {
-  const isDrainagePage = isDrainageTreatmentPath(window.location.pathname);
-  usePageMeta(isDrainagePage ? drainagePageMeta : homeMeta);
+  const pageKind = getPageKind(window.location.pathname);
+  const pageMeta =
+    pageKind === "drainage" ? drainagePageMeta : pageKind === "postoperative" ? postoperativePageMeta : homeMeta;
+
+  usePageMeta(pageMeta);
 
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
-      <Header isHome={!isDrainagePage} />
-      {isDrainagePage ? <DrainageLymphaticPage /> : <HomePage />}
+      <Header isHome={pageKind === "home"} />
+      {pageKind === "drainage" ? (
+        <DrainageLymphaticPage />
+      ) : pageKind === "postoperative" ? (
+        <PostoperativeDrainagePage />
+      ) : (
+        <HomePage />
+      )}
       <Footer />
     </main>
   );
@@ -535,6 +647,196 @@ function DrainageLymphaticPage() {
   );
 }
 
+function PostoperativeDrainagePage() {
+  const postoperativeGroup = serviceGroups[1];
+
+  return (
+    <>
+      <section id="top" className="mx-auto grid max-w-7xl gap-9 px-5 pb-16 pt-7 sm:px-8 lg:grid-cols-[0.9fr_1fr] lg:items-center lg:px-12 lg:pb-24 lg:pt-12">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-sm sm:aspect-[16/11] lg:aspect-auto lg:min-h-[620px]">
+          <img
+            className="h-full w-full object-cover object-center"
+            src={drainageAbdomen}
+            width={1350}
+            height={1800}
+            fetchPriority="high"
+            alt="Drenagem no pós-operatório realizada em marquesa na Delicarte"
+          />
+        </div>
+        <div className="max-w-2xl lg:pl-8">
+          <p className="section-kicker">Pós-operatório em Guimarães</p>
+          <h1 className="mt-5 font-serif text-5xl leading-[0.96] text-stone-950 sm:text-6xl lg:text-7xl">
+            Drenagem no Pós-Operatório
+          </h1>
+          <p className="mt-7 max-w-xl text-base font-light leading-8 text-stone-600 sm:text-lg">
+            Um acompanhamento manual cuidado para fases de recuperação, pensado para respeitar o corpo, a cirurgia e as
+            indicações clínicas recebidas.
+          </p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a className="button" href={whatsappHref}>
+              Marcar pelo WhatsApp
+            </a>
+            <a className="button button-secondary" href="#valores">
+              Ver cirurgias e valores
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-stone-200 bg-[#f6f1ea]">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[0.78fr_1fr] md:items-start lg:px-12 lg:py-24">
+          <div>
+            <p className="section-kicker">O tratamento</p>
+            <h2 className="section-title">O que é a drenagem no pós-operatório?</h2>
+          </div>
+          <div className="grid gap-5">
+            <p className="bio-copy">
+              A drenagem no pós-operatório é um acompanhamento manual suave, adaptado a fases de recuperação depois de
+              cirurgia ou procedimento. O objetivo é trabalhar com delicadeza, sem pressão agressiva, respeitando tecidos,
+              zonas sensíveis e limites clínicos.
+            </p>
+            <p className="bio-copy">
+              Na Delicarte, cada sessão começa com uma conversa sobre o procedimento, a fase em que se encontra e as
+              orientações que recebeu. O cuidado é sempre personalizado e não substitui o acompanhamento da equipa médica.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+        <div className="max-w-2xl">
+          <p className="section-kicker">Quando pode fazer sentido</p>
+          <h2 className="section-title">Um cuidado adaptado à recuperação.</h2>
+        </div>
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
+          {postoperativeIndications.map((item) => (
+            <article key={item.title} className="border-t border-stone-300 pt-7">
+              <h3 className="font-serif text-3xl text-stone-950">{item.title}</h3>
+              <p className="mt-5 text-base leading-7 text-stone-700">{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-[#3a302a] text-stone-50">
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+          <div className="max-w-2xl">
+            <p className="section-kicker text-stone-300">Como decorre</p>
+            <h2 className="mt-5 font-serif text-4xl leading-tight text-stone-50 sm:text-5xl">
+              Uma sessão cuidadosa, fase a fase.
+            </h2>
+          </div>
+          <div className="mt-12 grid gap-8 md:grid-cols-4">
+            {postoperativeSessionSteps.map((step) => (
+              <article key={step.title} className="border-t border-stone-500/60 pt-7">
+                <h3 className="font-serif text-2xl text-stone-50">{step.title}</h3>
+                <p className="mt-5 text-sm leading-7 text-stone-300">{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="valores" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-2xl">
+            <p className="section-kicker">Cirurgias e valores</p>
+            <h2 className="section-title">Acompanhamento por tipo de recuperação.</h2>
+          </div>
+          <a className="button button-secondary button-small" href={whatsappHref}>
+            Confirmar disponibilidade
+          </a>
+        </div>
+        <div className="border border-stone-200 bg-stone-50 p-6 sm:p-8">
+          <div className="max-w-2xl">
+            <span className="block h-px w-12 bg-stone-500" />
+            <h3 className="mt-7 font-serif text-3xl text-stone-950 sm:text-4xl">{postoperativeGroup.title}</h3>
+            <p className="mt-4 text-base leading-7 text-stone-700">{postoperativeGroup.description}</p>
+          </div>
+          <div className="mt-8 grid gap-3 border-t border-stone-200 pt-6">
+            {postoperativeGroup.items.map((item) => (
+              <div key={item.name} className="grid grid-cols-[1fr_auto] gap-4 text-sm leading-6">
+                <p className="text-stone-700">{item.name}</p>
+                <p className="text-right font-medium text-stone-950">
+                  {item.price}
+                  <span className="block font-normal text-stone-500">{item.time}</span>
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-stone-200 bg-[#f6f1ea]">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[0.78fr_1fr] lg:px-12 lg:py-24">
+          <div>
+            <p className="section-kicker">Antes de marcar</p>
+            <h2 className="section-title">Cuidados e precauções.</h2>
+          </div>
+          <div>
+            <p className="bio-copy">
+              O pós-operatório pede atenção redobrada. Antes de avançar, é importante perceber a fase de recuperação,
+              os sinais do corpo e qualquer recomendação da equipa médica.
+            </p>
+            <div className="mt-8 grid gap-4">
+              {postoperativePrecautions.map((item) => (
+                <p key={item} className="border-t border-stone-300 pt-4 text-base leading-7 text-stone-700">
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8 lg:py-24">
+        <div className="max-w-2xl">
+          <p className="section-kicker">Perguntas frequentes</p>
+          <h2 className="section-title">Dúvidas comuns antes da primeira sessão.</h2>
+        </div>
+        <div className="mt-12 grid gap-3">
+          {postoperativeFaqs.map((faq) => (
+            <details key={faq.question} className="group border border-stone-200 bg-stone-50 p-5 sm:p-6">
+              <summary className="service-summary cursor-pointer list-none font-serif text-2xl text-stone-950">
+                {faq.question}
+              </summary>
+              <p className="mt-4 text-base leading-7 text-stone-700">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section id="contacto" className="border-y border-stone-200 bg-stone-50">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-2 md:items-center lg:px-12 lg:py-24">
+          <div className="max-w-xl">
+            <p className="section-kicker">Marcação</p>
+            <h2 className="mt-5 max-w-lg text-2xl font-semibold leading-tight text-stone-950 sm:text-3xl">
+              Antes da primeira sessão, conversamos sobre a cirurgia e a fase da recuperação.
+            </h2>
+            <p className="copy mt-6">
+              A marcação por WhatsApp permite confirmar disponibilidade, perceber o contexto do pós-operatório e ajustar
+              o acompanhamento ao que faz sentido para si.
+            </p>
+            <a className="button mt-9" href={whatsappHref}>
+              Marcar pelo WhatsApp
+            </a>
+          </div>
+          <div>
+            <img
+              className="aspect-[4/3] w-full object-cover object-center"
+              src={delicartTreatmentRoom}
+              width={712}
+              height={885}
+              loading="lazy"
+              alt="Sala Delicarte preparada para acompanhamento no pós-operatório"
+            />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
 function Hero() {
   return (
     <section id="top" className="mx-auto grid max-w-7xl gap-9 px-5 pb-16 pt-7 sm:px-8 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:px-12 lg:pb-24 lg:pt-12">
@@ -753,7 +1055,7 @@ function Gallery() {
           <p className="section-kicker">Instagram</p>
           <h2 className="section-title">Siga-me no Instagram</h2>
           <p className="copy mt-5">
-            Alguns detalhes reais do cuidado, do espaço e das drenagens, reunidos com o mesmo tom calmo da página.
+            Alguns detalhes reais do cuidado, do espaço e das drenagens, partilhados com a mesma calma que se vive na Delicarte.
           </p>
         </div>
         <a
@@ -856,7 +1158,7 @@ function Footer() {
             </a>
           </div>
           <p className="mt-8 text-xs leading-6 text-stone-500">
-            © 2026 Delicarte. Website desenvolvido por{" "}
+            © 2026 Delicarte. Desenvolvido por{" "}
             <a
               className="footer-link text-stone-400"
               href="https://thecreative1.github.io/Estudio-Flavio-Martins/"

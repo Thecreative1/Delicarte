@@ -9,6 +9,7 @@ export default defineConfig({
             input: {
                 main: "index.html",
                 drainageLymphatic: "tratamentos/drenagem-linfatica-guimaraes/index.html",
+                postoperativeDrainage: "tratamentos/drenagem-pos-operatorio-guimaraes/index.html",
             },
         },
     },
