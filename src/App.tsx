@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import creamDetail from "./assets/cream-detail.webp";
 import delicartFacialTreatment from "./assets/delicarte-facial-treatment.jpg";
 import delicartReception from "./assets/delicarte-reception.jpg";
@@ -15,6 +15,22 @@ const whatsappHref =
 const instagramHref = "https://www.instagram.com/delicarte_raqueloliveira";
 const tiktokHref = "https://www.tiktok.com/@delicarte_raqueloliveira";
 const heroTreatmentRoom = "/delicarte-treatment-room.jpg";
+const drainagePagePath = "/tratamentos/drenagem-linfatica-guimaraes/";
+const drainagePageCanonical = "https://delicarte.pt/tratamentos/drenagem-linfatica-guimaraes/";
+
+const homeMeta = {
+  title: "Delicarte | Drenagem Linfática em Guimarães | Raquel Oliveira",
+  description:
+    "Drenagem linfática terapêutica em Guimarães com Raquel Oliveira. Pós-operatório, lipedema, gravidez e cuidado corporal personalizado.",
+  canonical: "https://delicarte.pt/",
+};
+
+const drainagePageMeta = {
+  title: "Drenagem Linfática em Guimarães | Delicarte",
+  description:
+    "Conheça a drenagem linfática na Delicarte, em Guimarães: para quem pode ser indicada, como decorre a sessão, cuidados, precauções, FAQs e marcação.",
+  canonical: drainagePageCanonical,
+};
 
 type ServiceGroup = {
   title: string;
@@ -39,7 +55,7 @@ const serviceGroups: ServiceGroup[] = [
       "Acompanhamento manual para lipedema, gravidez/pós-parto, retenção, conforto corporal e recuperação.",
     secondaryCta: {
       label: "Saber mais sobre Drenagem Linfática",
-      href: "/tratamentos/drenagem-linfatica-guimaraes/",
+      href: drainagePagePath,
     },
     items: [
       { name: "Drenagem Linfática Manual", price: "65€", time: "60 min" },
@@ -138,10 +154,118 @@ const galleryImages = [
   },
 ];
 
+const drainageIndications = [
+  {
+    title: "Lipedema e sensação de peso",
+    text: "Pode apoiar o conforto corporal quando existe sensação de pernas pesadas, retenção ou edema, sempre com adaptação ao caso individual.",
+  },
+  {
+    title: "Gravidez e pós-parto",
+    text: "Quando é adequado, o toque é ajustado à fase da gravidez ou recuperação, respeitando limites, conforto e orientação clínica quando necessária.",
+  },
+  {
+    title: "Retenção e bem-estar corporal",
+    text: "É procurada por quem sente inchaço, tensão ou desconforto e quer um acompanhamento manual delicado, sem pressão intensa.",
+  },
+  {
+    title: "Recuperação e cuidado contínuo",
+    text: "Pode integrar uma rotina de cuidado corporal, especialmente quando o objetivo é acompanhar o corpo com regularidade e escuta.",
+  },
+];
+
+const drainageSessionSteps = [
+  {
+    title: "Escuta inicial",
+    text: "A sessão começa com uma breve conversa sobre sintomas, objetivo, contexto clínico relevante e zonas que pedem mais atenção.",
+  },
+  {
+    title: "Toque manual suave",
+    text: "A drenagem é feita com movimentos precisos, lentos e ritmados, pensados para estimular o percurso linfático sem agressividade.",
+  },
+  {
+    title: "Adaptação ao corpo",
+    text: "A pressão, a duração e o foco da sessão são ajustados à sensibilidade, à fase de recuperação e ao conforto de cada pessoa.",
+  },
+  {
+    title: "Orientação final",
+    text: "No fim, pode receber indicações simples sobre cuidados, frequência sugerida e quando é melhor pedir avaliação médica antes de continuar.",
+  },
+];
+
+const drainagePrecautions = [
+  "Febre, infeção ativa, vermelhidão, calor local ou mal-estar devem ser avaliados antes de marcar.",
+  "Suspeita de trombose, dor súbita, falta de ar ou edema inesperado exigem avaliação médica urgente.",
+  "Após cirurgia, a drenagem deve respeitar a fase de recuperação e a autorização ou orientação clínica recebida.",
+  "Condições cardíacas, renais ou oncológicas pedem uma conversa prévia para perceber se o tratamento é adequado.",
+];
+
+const drainageFaqs = [
+  {
+    question: "A drenagem linfática dói?",
+    answer:
+      "Não deve ser uma massagem dolorosa. O trabalho é suave, ritmado e adaptado à sensibilidade de cada corpo.",
+  },
+  {
+    question: "Quantas sessões são necessárias?",
+    answer:
+      "Depende do objetivo, da resposta do corpo e do contexto de cada pessoa. Na primeira sessão, a Raquel ajuda a perceber uma frequência possível.",
+  },
+  {
+    question: "Posso fazer drenagem durante a gravidez?",
+    answer:
+      "Pode ser considerada em determinadas fases, desde que exista conforto e não haja contraindicações. Em caso de gravidez de risco ou dúvida clínica, deve existir orientação médica.",
+  },
+  {
+    question: "É o mesmo que massagem relaxante?",
+    answer:
+      "Não. A drenagem linfática tem um objetivo e ritmo específicos, com movimentos leves e direcionados para apoiar a circulação linfática.",
+  },
+  {
+    question: "Como marco a sessão?",
+    answer:
+      "A marcação é feita diretamente pelo WhatsApp, para confirmar disponibilidade, objetivo do tratamento e qualquer cuidado prévio importante.",
+  },
+];
+
+function isDrainageTreatmentPath(pathname: string) {
+  return pathname.replace(/\/+$/, "").endsWith("/tratamentos/drenagem-linfatica-guimaraes");
+}
+
+function usePageMeta(meta: typeof homeMeta) {
+  useEffect(() => {
+    document.title = meta.title;
+
+    const updateMeta = (selector: string, attribute: "content" | "href", value: string) => {
+      const element = document.head.querySelector(selector);
+      element?.setAttribute(attribute, value);
+    };
+
+    updateMeta('meta[name="description"]', "content", meta.description);
+    updateMeta('meta[property="og:title"]', "content", meta.title);
+    updateMeta('meta[property="og:description"]', "content", meta.description);
+    updateMeta('meta[property="og:url"]', "content", meta.canonical);
+    updateMeta('meta[name="twitter:title"]', "content", meta.title);
+    updateMeta('meta[name="twitter:description"]', "content", meta.description);
+    updateMeta('link[rel="canonical"]', "href", meta.canonical);
+  }, [meta]);
+}
+
 function App() {
+  const isDrainagePage = isDrainageTreatmentPath(window.location.pathname);
+  usePageMeta(isDrainagePage ? drainagePageMeta : homeMeta);
+
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
-      <Header />
+      <Header isHome={!isDrainagePage} />
+      {isDrainagePage ? <DrainageLymphaticPage /> : <HomePage />}
+      <Footer />
+    </main>
+  );
+}
+
+function HomePage() {
+  return (
+    <>
       <Hero />
       <About />
       <Treatments />
@@ -150,32 +274,32 @@ function App() {
       <Press />
       <Gallery />
       <FinalCta />
-      <Footer />
-    </main>
+    </>
   );
 }
 
-function Header() {
+function Header({ isHome }: { isHome: boolean }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
+  const sectionHref = (id: string) => (isHome ? `#${id}` : `/#${id}`);
 
   return (
     <header className="sticky top-0 z-20 border-b border-stone-200/80 bg-stone-50/92 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-12">
-        <a href="#top" onClick={closeMenu} className="font-serif text-xl tracking-[0.12em] text-stone-950">
+        <a href={isHome ? "#top" : "/"} onClick={closeMenu} className="font-serif text-xl tracking-[0.12em] text-stone-950">
           Delicarte
         </a>
         <nav aria-label="Menu principal" className="hidden items-center gap-8 text-sm text-stone-700 md:flex">
-          <a className="nav-link" href="#sobre">
+          <a className="nav-link" href={sectionHref("sobre")}>
             Sobre
           </a>
-          <a className="nav-link" href="#tratamentos">
+          <a className="nav-link" href={sectionHref("tratamentos")}>
             Tratamentos
           </a>
-          <a className="nav-link" href="#experiencia">
+          <a className="nav-link" href={sectionHref("experiencia")}>
             Experiência
           </a>
-          <a className="nav-link" href="#contacto">
+          <a className="nav-link" href={sectionHref("contacto")}>
             Contacto
           </a>
         </nav>
@@ -200,16 +324,16 @@ function Header() {
         className={`border-t border-stone-200 bg-stone-50 px-5 py-5 md:hidden ${isMenuOpen ? "block" : "hidden"}`}
       >
         <nav aria-label="Menu mobile" className="mx-auto grid max-w-7xl gap-4 text-sm uppercase tracking-[0.16em] text-stone-700">
-          <a className="nav-link" href="#sobre" onClick={closeMenu}>
+          <a className="nav-link" href={sectionHref("sobre")} onClick={closeMenu}>
             Sobre
           </a>
-          <a className="nav-link" href="#tratamentos" onClick={closeMenu}>
+          <a className="nav-link" href={sectionHref("tratamentos")} onClick={closeMenu}>
             Tratamentos
           </a>
-          <a className="nav-link" href="#experiencia" onClick={closeMenu}>
+          <a className="nav-link" href={sectionHref("experiencia")} onClick={closeMenu}>
             Experiência
           </a>
-          <a className="nav-link" href="#contacto" onClick={closeMenu}>
+          <a className="nav-link" href={sectionHref("contacto")} onClick={closeMenu}>
             Contacto
           </a>
           <a className="button mt-2" href={whatsappHref} onClick={closeMenu}>
@@ -218,6 +342,196 @@ function Header() {
         </nav>
       </div>
     </header>
+  );
+}
+
+function DrainageLymphaticPage() {
+  const drainageGroup = serviceGroups[0];
+
+  return (
+    <>
+      <section id="top" className="mx-auto grid max-w-7xl gap-9 px-5 pb-16 pt-7 sm:px-8 lg:grid-cols-[0.9fr_1fr] lg:items-center lg:px-12 lg:pb-24 lg:pt-12">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-sm sm:aspect-[16/11] lg:aspect-auto lg:min-h-[620px]">
+          <img
+            className="h-full w-full object-cover object-center"
+            src={drainageLeg}
+            width={1350}
+            height={1800}
+            fetchPriority="high"
+            alt="Drenagem linfática nos membros inferiores na Delicarte"
+          />
+        </div>
+        <div className="max-w-2xl lg:pl-8">
+          <p className="section-kicker">Drenagem linfática em Guimarães</p>
+          <h1 className="mt-5 font-serif text-5xl leading-[0.96] text-stone-950 sm:text-6xl lg:text-7xl">
+            Drenagem Linfática
+          </h1>
+          <p className="mt-7 max-w-xl text-base font-light leading-8 text-stone-600 sm:text-lg">
+            Um acompanhamento manual suave, preciso e personalizado para apoiar o conforto corporal em fases de
+            retenção, lipedema, gravidez, pós-parto e recuperação.
+          </p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a className="button" href={whatsappHref}>
+              Marcar pelo WhatsApp
+            </a>
+            <a className="button button-secondary" href="#valores">
+              Ver tipos e preços
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-stone-200 bg-[#f6f1ea]">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[0.78fr_1fr] md:items-start lg:px-12 lg:py-24">
+          <div>
+            <p className="section-kicker">O tratamento</p>
+            <h2 className="section-title">O que é a drenagem linfática?</h2>
+          </div>
+          <div className="grid gap-5">
+            <p className="bio-copy">
+              A drenagem linfática é uma técnica manual de toque leve e ritmado, feita para acompanhar o percurso do
+              sistema linfático e apoiar a sensação de leveza, conforto e mobilidade dos tecidos.
+            </p>
+            <p className="bio-copy">
+              Na Delicarte, cada sessão é adaptada ao corpo, à fase em que se encontra e ao objetivo do acompanhamento.
+              O tratamento não substitui avaliação médica, mas pode complementar uma rotina de cuidado quando é adequado
+              e seguro para a pessoa.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+        <div className="max-w-2xl">
+          <p className="section-kicker">Indicações habituais</p>
+          <h2 className="section-title">Para quem pode fazer sentido.</h2>
+        </div>
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
+          {drainageIndications.map((item) => (
+            <article key={item.title} className="border-t border-stone-300 pt-7">
+              <h3 className="font-serif text-3xl text-stone-950">{item.title}</h3>
+              <p className="mt-5 text-base leading-7 text-stone-700">{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-[#3a302a] text-stone-50">
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+          <div className="max-w-2xl">
+            <p className="section-kicker text-stone-300">Como decorre</p>
+            <h2 className="mt-5 font-serif text-4xl leading-tight text-stone-50 sm:text-5xl">
+              Uma sessão tranquila, técnica e sem pressa.
+            </h2>
+          </div>
+          <div className="mt-12 grid gap-8 md:grid-cols-4">
+            {drainageSessionSteps.map((step) => (
+              <article key={step.title} className="border-t border-stone-500/60 pt-7">
+                <h3 className="font-serif text-2xl text-stone-50">{step.title}</h3>
+                <p className="mt-5 text-sm leading-7 text-stone-300">{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="valores" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-2xl">
+            <p className="section-kicker">Tipos e preços</p>
+            <h2 className="section-title">Escolha o acompanhamento adequado.</h2>
+          </div>
+          <a className="button button-secondary button-small" href={whatsappHref}>
+            Confirmar disponibilidade
+          </a>
+        </div>
+        <div className="border border-stone-200 bg-stone-50 p-6 sm:p-8">
+          <div className="max-w-2xl">
+            <span className="block h-px w-12 bg-stone-500" />
+            <h3 className="mt-7 font-serif text-3xl text-stone-950 sm:text-4xl">{drainageGroup.title}</h3>
+            <p className="mt-4 text-base leading-7 text-stone-700">{drainageGroup.description}</p>
+          </div>
+          <div className="mt-8 grid gap-3 border-t border-stone-200 pt-6">
+            {drainageGroup.items.map((item) => (
+              <div key={item.name} className="grid grid-cols-[1fr_auto] gap-4 text-sm leading-6">
+                <p className="text-stone-700">{item.name}</p>
+                <p className="text-right font-medium text-stone-950">
+                  {item.price}
+                  <span className="block font-normal text-stone-500">{item.time}</span>
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-stone-200 bg-[#f6f1ea]">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[0.78fr_1fr] lg:px-12 lg:py-24">
+          <div>
+            <p className="section-kicker">Antes de marcar</p>
+            <h2 className="section-title">Cuidados e precauções.</h2>
+          </div>
+          <div>
+            <p className="bio-copy">
+              A drenagem deve ser confortável e adequada ao seu momento. Algumas situações pedem avaliação médica antes
+              de avançar, especialmente quando existem sintomas recentes, cirurgia ou doença em acompanhamento.
+            </p>
+            <div className="mt-8 grid gap-4">
+              {drainagePrecautions.map((item) => (
+                <p key={item} className="border-t border-stone-300 pt-4 text-base leading-7 text-stone-700">
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8 lg:py-24">
+        <div className="max-w-2xl">
+          <p className="section-kicker">Perguntas frequentes</p>
+          <h2 className="section-title">Dúvidas comuns antes da primeira sessão.</h2>
+        </div>
+        <div className="mt-12 grid gap-3">
+          {drainageFaqs.map((faq) => (
+            <details key={faq.question} className="group border border-stone-200 bg-stone-50 p-5 sm:p-6">
+              <summary className="service-summary cursor-pointer list-none font-serif text-2xl text-stone-950">
+                {faq.question}
+              </summary>
+              <p className="mt-4 text-base leading-7 text-stone-700">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section id="contacto" className="border-y border-stone-200 bg-stone-50">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-2 md:items-center lg:px-12 lg:py-24">
+          <div className="max-w-xl">
+            <p className="section-kicker">Marcação</p>
+            <h2 className="mt-5 max-w-lg text-2xl font-semibold leading-tight text-stone-950 sm:text-3xl">
+              Fale diretamente com a Raquel para perceber a melhor sessão para si.
+            </h2>
+            <p className="copy mt-6">
+              A marcação por WhatsApp permite confirmar disponibilidade, explicar o objetivo da drenagem e partilhar
+              qualquer informação importante antes da sessão.
+            </p>
+            <a className="button mt-9" href={whatsappHref}>
+              Marcar pelo WhatsApp
+            </a>
+          </div>
+          <div>
+            <img
+              className="aspect-[4/3] w-full object-cover object-center"
+              src={delicartTreatmentRoom}
+              width={712}
+              height={885}
+              loading="lazy"
+              alt="Sala Delicarte preparada para drenagem linfática"
+            />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
