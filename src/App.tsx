@@ -208,7 +208,7 @@ const drainageFaqs = [
   {
     question: "Quantas sessões são necessárias?",
     answer:
-      "Depende do objetivo, da resposta do corpo e do contexto de cada pessoa. Na primeira sessão, a Raquel ajuda a perceber uma frequência possível.",
+      "Depende do objetivo, da resposta do corpo e do contexto de cada pessoa. Na primeira sessão, percebemos em conjunto qual a frequência mais adequada.",
   },
   {
     question: "Posso fazer drenagem durante a gravidez?",
