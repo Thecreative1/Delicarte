@@ -16,12 +16,31 @@ const instagramHref = "https://www.instagram.com/delicarte_raqueloliveira";
 const tiktokHref = "https://www.tiktok.com/@delicarte_raqueloliveira";
 const heroTreatmentRoom = "/delicarte-treatment-room.jpg";
 
-const serviceGroups = [
+type ServiceGroup = {
+  title: string;
+  label: string;
+  description: string;
+  secondaryCta?: {
+    label: string;
+    href: string;
+  };
+  items: {
+    name: string;
+    price: string;
+    time: string;
+  }[];
+};
+
+const serviceGroups: ServiceGroup[] = [
   {
     title: "Drenagem Linfática",
     label: "Ver tipos e preços",
     description:
       "Acompanhamento manual para lipedema, gravidez/pós-parto, retenção, conforto corporal e recuperação.",
+    secondaryCta: {
+      label: "Saber mais sobre Drenagem Linfática",
+      href: "/tratamentos/drenagem-linfatica-guimaraes/",
+    },
     items: [
       { name: "Drenagem Linfática Manual", price: "65€", time: "60 min" },
       { name: "Drenagem Linfática Lipedema", price: "35€", time: "45 min" },
@@ -309,7 +328,15 @@ function Treatments() {
                 {group.label}
               </span>
             </summary>
-            <div className="mt-8 grid gap-3 border-t border-stone-200 pt-6">
+            {group.secondaryCta ? (
+              <a
+                className="nav-link mt-5 inline-flex text-sm font-medium text-stone-600 underline decoration-stone-300 underline-offset-4 hover:decoration-stone-500"
+                href={group.secondaryCta.href}
+              >
+                {group.secondaryCta.label}
+              </a>
+            ) : null}
+            <div className={`${group.secondaryCta ? "mt-6" : "mt-8"} grid gap-3 border-t border-stone-200 pt-6`}>
               {group.items.map((item) => (
                 <div key={item.name} className="grid grid-cols-[1fr_auto] gap-4 text-sm leading-6">
                   <p className="text-stone-700">{item.name}</p>
