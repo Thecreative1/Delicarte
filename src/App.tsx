@@ -1,4 +1,10 @@
 import { useEffect, useState } from "react";
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 import creamDetail from "./assets/cream-detail.webp";
 import delicartFacialTreatment from "./assets/delicarte-facial-treatment.jpg";
 import delicartReception from "./assets/delicarte-reception.jpg";
@@ -353,12 +359,29 @@ function usePageMeta(meta: typeof homeMeta) {
   }, [meta]);
 }
 
+function useWhatsAppTracking() {
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      const link = (e.target as HTMLElement).closest("a");
+      if (link?.href?.startsWith("https://wa.me/")) {
+        window.gtag?.("event", "contact_whatsapp", {
+          event_category: "contact",
+          event_label: document.title,
+        });
+      }
+    };
+    document.addEventListener("click", handler);
+    return () => document.removeEventListener("click", handler);
+  }, []);
+}
+
 function App() {
   const pageKind = getPageKind(window.location.pathname);
   const pageMeta =
     pageKind === "drainage" ? drainagePageMeta : pageKind === "postoperative" ? postoperativePageMeta : homeMeta;
 
   usePageMeta(pageMeta);
+  useWhatsAppTracking();
 
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
