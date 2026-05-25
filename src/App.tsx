@@ -244,6 +244,21 @@ const drainageFaqs = [
     answer:
       "A marcação é feita diretamente pelo WhatsApp, para confirmar disponibilidade, objetivo do tratamento e qualquer cuidado prévio importante.",
   },
+  {
+    question: "A drenagem linfática ajuda a emagrecer?",
+    answer:
+      "A drenagem linfática não é um tratamento de emagrecimento. O seu objetivo é apoiar o sistema linfático, reduzir retenção de líquidos e melhorar o conforto corporal. Qualquer sensação de leveza está relacionada com a diminuição do edema, não com perda de massa.",
+  },
+  {
+    question: "Quantas sessões são necessárias para lipedema?",
+    answer:
+      "O lipedema é uma condição crónica que beneficia de acompanhamento regular e continuado. A frequência e o número de sessões são definidos em conjunto, caso a caso, tendo em conta o estadio, os sintomas e o conforto de cada pessoa.",
+  },
+  {
+    question: "Qual a diferença entre drenagem manual e por aparelho?",
+    answer:
+      "A drenagem manual é feita com as mãos, com toque preciso e adaptado à anatomia e sensibilidade de cada pessoa. A drenagem por aparelho utiliza pressão mecânica, sem a mesma capacidade de ajuste individualizado. Na Delicarte, o trabalho é sempre manual.",
+  },
 ];
 
 const postoperativeIndications = [
@@ -321,6 +336,21 @@ const postoperativeFaqs = [
     question: "Como faço a marcação?",
     answer:
       "A marcação é feita por WhatsApp, para confirmar disponibilidade, explicar o contexto da cirurgia e perceber se existe alguma indicação prévia importante.",
+  },
+  {
+    question: "Quando posso começar a drenagem após abdominoplastia?",
+    answer:
+      "Depende do tipo de abdominoplastia, da fase de recuperação e das indicações da equipa médica. Em geral, o acompanhamento começa após autorização clínica, respeitando cicatrizes, drenos e o conforto individual. Na primeira sessão, avaliamos juntos o que é adequado ao seu momento.",
+  },
+  {
+    question: "A drenagem pós-operatória ajuda a reduzir a fibrose?",
+    answer:
+      "O trabalho manual suave pode apoiar os tecidos numa fase em que existe tensão ou endurecimento. A abordagem é sempre adaptada à fase da recuperação e não substitui acompanhamento médico quando existem sinais de fibrose significativa.",
+  },
+  {
+    question: "Posso fazer drenagem após lipoaspiração?",
+    answer:
+      "Pode ser adequada após lipoaspiração, respeitando sempre a fase de recuperação e as indicações clínicas recebidas. O toque é adaptado às zonas tratadas, à sensibilidade e ao estado dos tecidos em cada sessão.",
   },
 ];
 
