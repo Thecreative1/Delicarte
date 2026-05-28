@@ -450,6 +450,7 @@ function Header({ isHome }: { isHome: boolean }) {
 
   return (
     <header className="sticky top-0 z-20 border-b border-stone-200/80 bg-stone-50/92 backdrop-blur-md">
+      <a href="#top" className="skip-link button">Saltar para o conteúdo</a>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-12">
         <a href={isHome ? "#top" : "/"} onClick={closeMenu} className="font-serif text-xl tracking-[0.12em] text-stone-950">
           Delicarte
@@ -475,7 +476,7 @@ function Header({ isHome }: { isHome: boolean }) {
           Marcar pelo WhatsApp
         </a>
         <button
-          className="inline-flex min-h-10 items-center border border-stone-300 px-4 text-xs font-medium uppercase tracking-[0.18em] text-stone-800 md:hidden"
+          className="inline-flex min-h-11 items-center border border-stone-300 px-4 text-xs font-medium uppercase tracking-[0.18em] text-stone-800 md:hidden"
           type="button"
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
@@ -488,7 +489,7 @@ function Header({ isHome }: { isHome: boolean }) {
         id="mobile-menu"
         className={`border-t border-stone-200 bg-stone-50 px-5 py-5 md:hidden ${isMenuOpen ? "block" : "hidden"}`}
       >
-        <nav aria-label="Menu mobile" className="mx-auto grid max-w-7xl gap-4 text-sm uppercase tracking-[0.16em] text-stone-700">
+        <nav aria-label="Menu mobile" className="mx-auto grid max-w-7xl gap-4 text-sm uppercase tracking-[0.16em] text-stone-700 [&>a]:flex [&>a]:min-h-11 [&>a]:items-center">
           <a className="nav-link" href={sectionHref("sobre")} onClick={closeMenu}>
             Sobre
           </a>
@@ -546,7 +547,7 @@ function DrainageLymphaticPage() {
         </div>
       </section>
 
-      <section className="border-y border-stone-200 bg-[#f6f1ea]">
+      <section className="border-y border-stone-200 bg-delicarte-soft">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[0.78fr_1fr] md:items-start lg:px-12 lg:py-24">
           <div>
             <p className="section-kicker">O tratamento</p>
@@ -581,7 +582,7 @@ function DrainageLymphaticPage() {
         </div>
       </section>
 
-      <section className="bg-[#3a302a] text-stone-50">
+      <section className="bg-delicarte-walnut text-stone-50">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
           <div className="max-w-2xl">
             <p className="section-kicker text-stone-300">Como decorre</p>
@@ -622,7 +623,7 @@ function DrainageLymphaticPage() {
                 <p className="text-stone-700">{item.name}</p>
                 <p className="text-right font-medium text-stone-950">
                   {item.price}
-                  <span className="block font-normal text-stone-500">{item.time}</span>
+                  <span className="block font-normal text-stone-600">{item.time}</span>
                 </p>
               </div>
             ))}
@@ -630,7 +631,7 @@ function DrainageLymphaticPage() {
         </div>
       </section>
 
-      <section className="border-y border-stone-200 bg-[#f6f1ea]">
+      <section className="border-y border-stone-200 bg-delicarte-soft">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[0.78fr_1fr] lg:px-12 lg:py-24">
           <div>
             <p className="section-kicker">Antes de marcar</p>
@@ -659,8 +660,8 @@ function DrainageLymphaticPage() {
         </div>
         <div className="mt-12 grid gap-3">
           {drainageFaqs.map((faq) => (
-            <details key={faq.question} className="group border border-stone-200 bg-stone-50 p-5 sm:p-6">
-              <summary className="service-summary cursor-pointer list-none font-serif text-2xl text-stone-950">
+            <details key={faq.question} className="border border-stone-200 bg-stone-50 p-5 sm:p-6">
+              <summary className="service-summary faq-summary cursor-pointer list-none font-serif text-2xl text-stone-950">
                 {faq.question}
               </summary>
               <p className="mt-4 text-base leading-7 text-stone-700">{faq.answer}</p>
@@ -690,7 +691,7 @@ function DrainageLymphaticPage() {
               src={delicartTreatmentRoom}
               width={712}
               height={885}
-              loading="lazy"
+              loading="lazy" decoding="async"
               alt="Sala Delicarte preparada para drenagem linfática"
             />
           </div>
@@ -736,7 +737,7 @@ function PostoperativeDrainagePage() {
         </div>
       </section>
 
-      <section className="border-y border-stone-200 bg-[#f6f1ea]">
+      <section className="border-y border-stone-200 bg-delicarte-soft">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[0.78fr_1fr] md:items-start lg:px-12 lg:py-24">
           <div>
             <p className="section-kicker">O tratamento</p>
@@ -771,7 +772,7 @@ function PostoperativeDrainagePage() {
         </div>
       </section>
 
-      <section className="bg-[#3a302a] text-stone-50">
+      <section className="bg-delicarte-walnut text-stone-50">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
           <div className="max-w-2xl">
             <p className="section-kicker text-stone-300">Como decorre</p>
@@ -812,7 +813,7 @@ function PostoperativeDrainagePage() {
                 <p className="text-stone-700">{item.name}</p>
                 <p className="text-right font-medium text-stone-950">
                   {item.price}
-                  <span className="block font-normal text-stone-500">{item.time}</span>
+                  <span className="block font-normal text-stone-600">{item.time}</span>
                 </p>
               </div>
             ))}
@@ -820,7 +821,7 @@ function PostoperativeDrainagePage() {
         </div>
       </section>
 
-      <section className="border-y border-stone-200 bg-[#f6f1ea]">
+      <section className="border-y border-stone-200 bg-delicarte-soft">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[0.78fr_1fr] lg:px-12 lg:py-24">
           <div>
             <p className="section-kicker">Antes de marcar</p>
@@ -849,8 +850,8 @@ function PostoperativeDrainagePage() {
         </div>
         <div className="mt-12 grid gap-3">
           {postoperativeFaqs.map((faq) => (
-            <details key={faq.question} className="group border border-stone-200 bg-stone-50 p-5 sm:p-6">
-              <summary className="service-summary cursor-pointer list-none font-serif text-2xl text-stone-950">
+            <details key={faq.question} className="border border-stone-200 bg-stone-50 p-5 sm:p-6">
+              <summary className="service-summary faq-summary cursor-pointer list-none font-serif text-2xl text-stone-950">
                 {faq.question}
               </summary>
               <p className="mt-4 text-base leading-7 text-stone-700">{faq.answer}</p>
@@ -880,7 +881,7 @@ function PostoperativeDrainagePage() {
               src={delicartTreatmentRoom}
               width={712}
               height={885}
-              loading="lazy"
+              loading="lazy" decoding="async"
               alt="Sala Delicarte preparada para acompanhamento no pós-operatório"
             />
           </div>
@@ -930,7 +931,7 @@ function Hero() {
 
 function About() {
   return (
-    <section id="sobre" className="border-y border-stone-200 bg-[#f6f1ea]">
+    <section id="sobre" className="border-y border-stone-200 bg-delicarte-soft">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[0.8fr_1fr] md:items-center lg:px-12 lg:py-24">
         <div className="grid gap-4">
           <img
@@ -938,7 +939,7 @@ function About() {
             src={raquelBrandingBio}
             width={1600}
             height={2400}
-            loading="lazy"
+            loading="lazy" decoding="async"
             alt="Retrato de Raquel Oliveira"
           />
           <div className="flex items-center gap-4 border-t border-stone-300 pt-4">
@@ -947,7 +948,7 @@ function About() {
               src={raquelPdfAvatar}
               width={214}
               height={320}
-              loading="lazy"
+              loading="lazy" decoding="async"
               alt="Raquel Oliveira"
             />
             <div>
@@ -986,7 +987,7 @@ function Treatments() {
       </div>
       <div className="mt-12 grid gap-4">
         {serviceGroups.map((group) => (
-          <details key={group.title} className="group border border-stone-200 bg-stone-50 p-6 sm:p-8">
+          <details key={group.title} className="border border-stone-200 bg-stone-50 p-6 sm:p-8">
             <summary className="service-summary flex cursor-pointer list-none flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
               <div className="max-w-2xl">
                 <span className="block h-px w-12 bg-stone-500" />
@@ -1011,7 +1012,7 @@ function Treatments() {
                   <p className="text-stone-700">{item.name}</p>
                   <p className="text-right font-medium text-stone-950">
                     {item.price}
-                    <span className="block font-normal text-stone-500">{item.time}</span>
+                    <span className="block font-normal text-stone-600">{item.time}</span>
                   </p>
                 </div>
               ))}
@@ -1033,7 +1034,7 @@ function Editorial() {
             src={greenFeather}
             width={736}
             height={1308}
-            loading="lazy"
+            loading="lazy" decoding="async"
             alt="Textura verde suave associada a pausa e cuidado"
           />
           <div className="absolute inset-0 bg-stone-950/35" />
@@ -1051,7 +1052,7 @@ function Editorial() {
 
 function Experience() {
   return (
-    <section id="experiencia" className="bg-[#3a302a] text-stone-50">
+    <section id="experiencia" className="bg-delicarte-walnut text-stone-50">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
         <div className="max-w-2xl">
           <p className="section-kicker text-stone-300">A experiência Delicarte</p>
@@ -1074,7 +1075,7 @@ function Experience() {
 
 function Press() {
   return (
-    <section className="border-y border-stone-200 bg-[#f6f1ea]">
+    <section className="border-y border-stone-200 bg-delicarte-soft">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[1fr_0.62fr] md:items-center lg:px-12 lg:py-20">
         <div className="max-w-2xl">
           <p className="section-kicker">Na imprensa</p>
@@ -1091,7 +1092,7 @@ function Press() {
             src={raquelPress}
             width={746}
             height={890}
-            loading="lazy"
+            loading="lazy" decoding="async"
             alt="Publicação sobre Raquel Oliveira na Revista Spot"
           />
         </div>
@@ -1128,7 +1129,7 @@ function Gallery() {
             src={image.src}
             width={image.width}
             height={image.height}
-            loading="lazy"
+            loading="lazy" decoding="async"
             alt={image.alt}
           />
         ))}
@@ -1180,7 +1181,7 @@ function FinalCta() {
             src={delicartTreatmentRoom}
             width={712}
             height={885}
-            loading="lazy"
+            loading="lazy" decoding="async"
             alt="Detalhe acolhedor do estúdio Delicarte"
           />
         </div>
@@ -1210,7 +1211,7 @@ function Footer() {
               +351 917 968 714
             </a>
           </div>
-          <p className="mt-8 text-xs leading-6 text-stone-500">
+          <p className="mt-8 text-xs leading-6 text-stone-400">
             © 2026 Delicarte. Desenvolvido por{" "}
             <a
               className="footer-link text-stone-400"

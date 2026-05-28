@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --color-delicarte-soft: #f3efe7;
+  --color-delicarte-walnut: #34382e;
+}
+
 :root {
   color-scheme: light;
   --color-stone-50: #fbfaf7;
@@ -42,7 +47,7 @@ img {
 }
 
 .section-kicker {
-  @apply text-xs font-medium uppercase tracking-[0.24em] text-stone-500;
+  @apply text-xs font-medium uppercase tracking-[0.24em] text-stone-600;
 }
 
 .section-title {
@@ -57,12 +62,22 @@ img {
   @apply text-base font-light leading-8 text-stone-600 sm:text-lg;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 50;
+}
+
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
 .button {
-  @apply inline-flex min-h-12 items-center justify-center border px-7 text-sm font-medium uppercase tracking-[0.16em] text-stone-50 transition duration-300 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2 focus:ring-offset-stone-50;
+  @apply inline-flex min-h-12 items-center justify-center border px-7 text-sm font-medium uppercase tracking-[0.16em] text-stone-50 transition duration-300 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2 focus:ring-offset-transparent;
   border-color: var(--delicarte-accent);
   background-color: var(--delicarte-accent);
   color: #ffffff;
-  box-shadow: none;
 }
 
 .button:hover {
@@ -82,12 +97,19 @@ img {
 }
 
 .button-small {
-  @apply min-h-10 px-5 text-xs;
+  @apply min-h-11 px-5 text-xs;
 }
 
 .nav-link,
 .footer-link {
   @apply transition duration-300 hover:text-stone-950;
+}
+
+.nav-link:focus-visible,
+.footer-link:focus-visible {
+  outline: 2px solid var(--delicarte-accent);
+  outline-offset: 3px;
+  border-radius: 1px;
 }
 
 .footer-link {
@@ -98,24 +120,32 @@ img {
   display: none;
 }
 
-.header-whatsapp {
+.service-summary::marker {
   display: none;
 }
 
-.bg-\[\#f6f1ea\] {
-  background-color: var(--delicarte-soft);
+.faq-summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.bg-\[\#ebe1d6\] {
-  background-color: var(--delicarte-panel);
+.faq-summary::after {
+  content: '+';
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--color-stone-500);
+  flex-shrink: 0;
 }
 
-.bg-\[\#3a302a\] {
-  background-color: #34382e;
+details[open] > .faq-summary::after {
+  content: '−';
 }
 
-.hover\:bg-\[\#f4eee6\]:hover {
-  background-color: #f1eee6;
+.header-whatsapp {
+  display: none;
 }
 
 @media (min-width: 640px) {
@@ -127,5 +157,19 @@ img {
 @media (max-width: 420px) {
   .button {
     @apply w-full px-4 text-xs tracking-[0.12em];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
