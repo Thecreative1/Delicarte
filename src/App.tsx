@@ -10,10 +10,16 @@ import delicartFacialTreatment from "./assets/delicarte-facial-treatment.jpg";
 import delicartReception from "./assets/delicarte-reception.jpg";
 import delicartTreatmentRoom from "./assets/delicarte-treatment-room.jpg";
 import drainageAbdomen from "./assets/drainage-abdomen.jpg";
+import drainageAbdomen720 from "./assets/drainage-abdomen-720.webp";
+import drainageAbdomen1080 from "./assets/drainage-abdomen-1080.webp";
 import drainageLeg from "./assets/drainage-leg.jpg";
+import drainageLeg720 from "./assets/drainage-leg-720.webp";
+import drainageLeg1080 from "./assets/drainage-leg-1080.webp";
 import greenFeather from "./assets/green-feather.jpg";
 import raquelBrandingBio from "./assets/raquel-branding-bio.jpg";
-import raquelPdfAvatar from "./assets/raquel-pdf-avatar.jpg";
+import raquelBrandingBio640 from "./assets/raquel-branding-bio-640.webp";
+import raquelBrandingBio960 from "./assets/raquel-branding-bio-960.webp";
+import raquelPdfAvatar96 from "./assets/raquel-pdf-avatar-96.webp";
 import raquelPress from "./assets/raquel-press.jpg";
 
 const whatsappHref =
@@ -21,6 +27,7 @@ const whatsappHref =
 const instagramHref = "https://www.instagram.com/delicarte_raqueloliveira";
 const tiktokHref = "https://www.tiktok.com/@delicarte_raqueloliveira";
 const heroTreatmentRoom = "/delicarte-treatment-room.jpg";
+const heroTreatmentRoomWebp = "/delicarte-treatment-room.webp";
 const drainagePagePath = "/tratamentos/drenagem-linfatica-guimaraes/";
 const drainagePageCanonical = "https://delicarte.pt/tratamentos/drenagem-linfatica-guimaraes/";
 const postoperativePagePath = "/tratamentos/drenagem-pos-operatorio-guimaraes/";
@@ -405,8 +412,12 @@ function useWhatsAppTracking() {
   }, []);
 }
 
-function App() {
-  const pageKind = getPageKind(window.location.pathname);
+type AppProps = {
+  initialPath?: string;
+};
+
+function App({ initialPath = typeof window === "undefined" ? "/" : window.location.pathname }: AppProps) {
+  const pageKind = getPageKind(initialPath);
   const pageMeta =
     pageKind === "drainage" ? drainagePageMeta : pageKind === "postoperative" ? postoperativePageMeta : homeMeta;
 
@@ -518,14 +529,21 @@ function DrainageLymphaticPage() {
     <>
       <section id="top" className="mx-auto grid max-w-7xl gap-9 px-5 pb-16 pt-7 sm:px-8 lg:grid-cols-[0.9fr_1fr] lg:items-center lg:px-12 lg:pb-24 lg:pt-12">
         <div className="relative aspect-[4/5] overflow-hidden rounded-sm sm:aspect-[16/11] lg:aspect-auto lg:min-h-[620px]">
-          <img
-            className="h-full w-full object-cover object-center"
-            src={drainageLeg}
-            width={1350}
-            height={1800}
-            fetchPriority="high"
-            alt="Drenagem linfática nos membros inferiores na Delicarte"
-          />
+          <picture className="block h-full w-full">
+            <source
+              type="image/webp"
+              srcSet={`${drainageLeg720} 720w, ${drainageLeg1080} 1080w`}
+              sizes="(min-width: 1024px) 46vw, calc(100vw - 40px)"
+            />
+            <img
+              className="h-full w-full object-cover object-center"
+              src={drainageLeg}
+              width={1350}
+              height={1800}
+              fetchPriority="high"
+              alt="Drenagem linfática nos membros inferiores na Delicarte"
+            />
+          </picture>
         </div>
         <div className="max-w-2xl lg:pl-8">
           <p className="section-kicker">Drenagem linfática em Guimarães</p>
@@ -708,14 +726,21 @@ function PostoperativeDrainagePage() {
     <>
       <section id="top" className="mx-auto grid max-w-7xl gap-9 px-5 pb-16 pt-7 sm:px-8 lg:grid-cols-[0.9fr_1fr] lg:items-center lg:px-12 lg:pb-24 lg:pt-12">
         <div className="relative aspect-[4/5] overflow-hidden rounded-sm sm:aspect-[16/11] lg:aspect-auto lg:min-h-[620px]">
-          <img
-            className="h-full w-full object-cover object-center"
-            src={drainageAbdomen}
-            width={1350}
-            height={1800}
-            fetchPriority="high"
-            alt="Drenagem no pós-operatório realizada em marquesa na Delicarte"
-          />
+          <picture className="block h-full w-full">
+            <source
+              type="image/webp"
+              srcSet={`${drainageAbdomen720} 720w, ${drainageAbdomen1080} 1080w`}
+              sizes="(min-width: 1024px) 46vw, calc(100vw - 40px)"
+            />
+            <img
+              className="h-full w-full object-cover object-center"
+              src={drainageAbdomen}
+              width={1350}
+              height={1800}
+              fetchPriority="high"
+              alt="Drenagem no pós-operatório realizada em marquesa na Delicarte"
+            />
+          </picture>
         </div>
         <div className="max-w-2xl lg:pl-8">
           <p className="section-kicker">Pós-operatório em Guimarães</p>
@@ -895,14 +920,17 @@ function Hero() {
   return (
     <section id="top" className="mx-auto grid max-w-7xl gap-9 px-5 pb-16 pt-7 sm:px-8 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:px-12 lg:pb-24 lg:pt-12">
       <div className="relative aspect-[4/5] overflow-hidden rounded-sm sm:aspect-[16/11] lg:aspect-auto lg:min-h-[620px]">
-        <img
-          className="h-full w-full object-cover object-center"
-          src={heroTreatmentRoom}
-          width={712}
-          height={885}
-          fetchPriority="high"
-          alt="Sala Delicarte preparada para uma sessão de cuidado corporal"
-        />
+        <picture className="block h-full w-full">
+          <source type="image/webp" srcSet={heroTreatmentRoomWebp} />
+          <img
+            className="h-full w-full object-cover object-center"
+            src={heroTreatmentRoom}
+            width={712}
+            height={885}
+            fetchPriority="high"
+            alt="Sala Delicarte preparada para uma sessão de cuidado corporal"
+          />
+        </picture>
       </div>
       <div className="max-w-2xl lg:pl-8">
         <p className="section-kicker">Drenagem linfática · pós-operatório · bem-estar</p>
@@ -936,7 +964,9 @@ function About() {
         <div className="grid gap-4">
           <img
             className="aspect-[4/5] w-full rounded-sm object-cover object-top md:h-[520px] md:object-[center_22%] lg:h-[540px]"
-            src={raquelBrandingBio}
+            src={raquelBrandingBio960}
+            srcSet={`${raquelBrandingBio640} 640w, ${raquelBrandingBio960} 960w, ${raquelBrandingBio} 1600w`}
+            sizes="(min-width: 1024px) 36vw, (min-width: 768px) 42vw, calc(100vw - 40px)"
             width={1600}
             height={2400}
             loading="lazy" decoding="async"
@@ -945,7 +975,7 @@ function About() {
           <div className="flex items-center gap-4 border-t border-stone-300 pt-4">
             <img
               className="h-16 w-16 rounded-full object-cover"
-              src={raquelPdfAvatar}
+              src={raquelPdfAvatar96}
               width={214}
               height={320}
               loading="lazy" decoding="async"

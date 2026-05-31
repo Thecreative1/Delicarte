@@ -15,8 +15,10 @@
     <meta name="geo.position" content="41.4425;-8.2956" />
     <meta name="ICBM" content="41.4425, -8.2956" />
     <link rel="canonical" href="https://delicarte.pt/" />
+    <link rel="alternate" hreflang="pt-PT" href="https://delicarte.pt/" />
+    <link rel="alternate" hreflang="x-default" href="https://delicarte.pt/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="preload" href="/delicarte-treatment-room.jpg" as="image" fetchpriority="high" />
+    <link rel="preload" href="/delicarte-treatment-room.webp" as="image" fetchpriority="high" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_PT" />
@@ -49,16 +51,37 @@
             "@type": "HealthAndBeautyBusiness",
             "@id": "https://delicarte.pt/#business",
             "name": "Delicarte by Raquel Oliveira",
+            "description": "Espaço especializado em drenagem linfática terapêutica, pós-operatório, lipedema, gravidez e cuidado corporal personalizado em Guimarães.",
             "url": "https://delicarte.pt/",
-            "image": "https://delicarte.pt/og-image.jpg",
+            "image": [
+              "https://delicarte.pt/og-image.jpg",
+              "https://delicarte.pt/delicarte-treatment-room.jpg"
+            ],
+            "logo": "https://delicarte.pt/favicon.svg",
             "telephone": "+351917968714",
             "priceRange": "€€",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Rua Santa Eulália 778",
-              "addressLocality": "Fermentões",
-              "addressRegion": "Guimarães",
+              "streetAddress": "Rua Santa Eulália 778, Fermentões",
+              "addressLocality": "Guimarães",
+              "addressRegion": "Braga",
               "addressCountry": "PT"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 41.4425,
+              "longitude": -8.2956
+            },
+            "hasMap": "https://www.google.com/maps/search/?api=1&query=Rua%20Santa%20Eul%C3%A1lia%20778%2C%20Ferment%C3%B5es%2C%20Guimar%C3%A3es",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+351917968714",
+              "contactType": "Marcações",
+              "areaServed": "PT",
+              "availableLanguage": "Portuguese"
+            },
+            "founder": {
+              "@id": "https://delicarte.pt/#raquel"
             },
             "sameAs": [
               "https://www.instagram.com/delicarte_raqueloliveira",
@@ -83,6 +106,11 @@
                   "itemOffered": {
                     "@type": "Service",
                     "name": "Drenagem Linfática Manual"
+                  },
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "price": 65,
+                    "priceCurrency": "EUR"
                   }
                 },
                 {
@@ -90,6 +118,11 @@
                   "itemOffered": {
                     "@type": "Service",
                     "name": "Drenagem Linfática Pós-Operatório"
+                  },
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "price": 70,
+                    "priceCurrency": "EUR"
                   }
                 },
                 {
@@ -97,6 +130,11 @@
                   "itemOffered": {
                     "@type": "Service",
                     "name": "Drenagem Linfática Lipedema"
+                  },
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "price": 35,
+                    "priceCurrency": "EUR"
                   }
                 },
                 {
@@ -104,6 +142,11 @@
                   "itemOffered": {
                     "@type": "Service",
                     "name": "Drenagem Linfática Grávida Pós-Parto"
+                  },
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "price": 55,
+                    "priceCurrency": "EUR"
                   }
                 }
               ]
@@ -114,9 +157,20 @@
             "@id": "https://delicarte.pt/#raquel",
             "name": "Raquel Oliveira",
             "jobTitle": "Linfoterapeuta",
+            "knowsAbout": [
+              "Drenagem linfática",
+              "Pós-operatório",
+              "Lipedema",
+              "Gravidez",
+              "Pós-parto"
+            ],
             "worksFor": {
               "@id": "https://delicarte.pt/#business"
-            }
+            },
+            "sameAs": [
+              "https://www.instagram.com/delicarte_raqueloliveira",
+              "https://www.tiktok.com/@delicarte_raqueloliveira"
+            ]
           },
           {
             "@type": "WebSite",
