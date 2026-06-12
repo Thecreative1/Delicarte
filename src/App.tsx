@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
+    delicarteAnalyticsLoaded?: boolean;
   }
 }
 import creamDetail from "./assets/cream-detail.webp";
@@ -26,6 +28,8 @@ const whatsappHref =
   "https://wa.me/351917968714?text=Ol%C3%A1%20Raquel%2C%20gostaria%20de%20marcar%20uma%20sess%C3%A3o%20na%20Delicarte.";
 const instagramHref = "https://www.instagram.com/delicarte_raqueloliveira";
 const tiktokHref = "https://www.tiktok.com/@delicarte_raqueloliveira";
+const gaMeasurementId = "G-EMD39MEPTD";
+const cookieConsentStorageKey = "delicarte_cookie_consent";
 const heroTreatmentRoom = "/delicarte-treatment-room.jpg";
 const heroTreatmentRoomWebp = "/delicarte-treatment-room.webp";
 const drainagePagePath = "/tratamentos/drenagem-linfatica-guimaraes/";
@@ -362,6 +366,7 @@ const postoperativeFaqs = [
 ];
 
 type PageKind = "home" | "drainage" | "postoperative";
+type CookieConsent = "accepted" | "declined";
 
 function getPageKind(pathname: string): PageKind {
   const normalizedPath = pathname.replace(/\/+$/, "");
@@ -412,6 +417,105 @@ function useWhatsAppTracking() {
   }, []);
 }
 
+function ensureGtagQueue() {
+  window.dataLayer = window.dataLayer || [];
+  window.gtag =
+    window.gtag ||
+    ((...args: unknown[]) => {
+      window.dataLayer?.push(args);
+    });
+}
+
+function updateAnalyticsConsent(consent: CookieConsent) {
+  ensureGtagQueue();
+  window.gtag?.("consent", "update", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: consent === "accepted" ? "granted" : "denied",
+    functionality_storage: "granted",
+    security_storage: "granted",
+  });
+}
+
+function loadGoogleAnalytics() {
+  ensureGtagQueue();
+
+  if (!window.delicarteAnalyticsLoaded) {
+    const scriptSrc = `https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`;
+    const hasScript = document.querySelector(`script[src="${scriptSrc}"]`);
+
+    if (!hasScript) {
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = scriptSrc;
+      document.head.appendChild(script);
+    }
+
+    window.delicarteAnalyticsLoaded = true;
+    window.gtag?.("js", new Date());
+    window.gtag?.("config", gaMeasurementId, {
+      anonymize_ip: true,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+    });
+  }
+
+  updateAnalyticsConsent("accepted");
+}
+
+function CookieConsentBanner() {
+  const [isReady, setIsReady] = useState(false);
+  const [choice, setChoice] = useState<CookieConsent | null>(null);
+
+  useEffect(() => {
+    const savedChoice = window.localStorage.getItem(cookieConsentStorageKey);
+
+    if (savedChoice === "accepted" || savedChoice === "declined") {
+      setChoice(savedChoice);
+
+      if (savedChoice === "accepted") {
+        loadGoogleAnalytics();
+      } else {
+        updateAnalyticsConsent("declined");
+      }
+    }
+
+    setIsReady(true);
+  }, []);
+
+  const chooseConsent = (nextChoice: CookieConsent) => {
+    window.localStorage.setItem(cookieConsentStorageKey, nextChoice);
+    setChoice(nextChoice);
+
+    if (nextChoice === "accepted") {
+      loadGoogleAnalytics();
+    } else {
+      updateAnalyticsConsent("declined");
+    }
+  };
+
+  if (!isReady || choice) {
+    return null;
+  }
+
+  return (
+    <section className="cookie-consent" aria-label="Consentimento de cookies">
+      <p>
+        Usamos cookies analíticos para perceber visitas ao site. Pode aceitar ou recusar; o site funciona na mesma.
+      </p>
+      <div className="cookie-consent-actions">
+        <button type="button" className="button button-secondary button-small" onClick={() => chooseConsent("declined")}>
+          Recusar
+        </button>
+        <button type="button" className="button button-small" onClick={() => chooseConsent("accepted")}>
+          Aceitar
+        </button>
+      </div>
+    </section>
+  );
+}
+
 type AppProps = {
   initialPath?: string;
 };
@@ -435,6 +539,7 @@ function App({ initialPath = typeof window === "undefined" ? "/" : window.locati
         <HomePage />
       )}
       <Footer />
+      <CookieConsentBanner />
     </main>
   );
 }
