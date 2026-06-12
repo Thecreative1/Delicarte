@@ -464,14 +464,31 @@ function loadGoogleAnalytics() {
   updateAnalyticsConsent("accepted");
 }
 
+function readCookieConsentChoice(): CookieConsent | null {
+  try {
+    const savedChoice = window.localStorage.getItem(cookieConsentStorageKey);
+    return savedChoice === "accepted" || savedChoice === "declined" ? savedChoice : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveCookieConsentChoice(choice: CookieConsent) {
+  try {
+    window.localStorage.setItem(cookieConsentStorageKey, choice);
+  } catch {
+    // Some private browsing modes block storage. Keep the in-memory choice for this page view.
+  }
+}
+
 function CookieConsentBanner() {
   const [isReady, setIsReady] = useState(false);
   const [choice, setChoice] = useState<CookieConsent | null>(null);
 
   useEffect(() => {
-    const savedChoice = window.localStorage.getItem(cookieConsentStorageKey);
+    const savedChoice = readCookieConsentChoice();
 
-    if (savedChoice === "accepted" || savedChoice === "declined") {
+    if (savedChoice) {
       setChoice(savedChoice);
 
       if (savedChoice === "accepted") {
@@ -485,7 +502,7 @@ function CookieConsentBanner() {
   }, []);
 
   const chooseConsent = (nextChoice: CookieConsent) => {
-    window.localStorage.setItem(cookieConsentStorageKey, nextChoice);
+    saveCookieConsentChoice(nextChoice);
     setChoice(nextChoice);
 
     if (nextChoice === "accepted") {
