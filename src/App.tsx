@@ -519,7 +519,7 @@ function CookieConsentBanner() {
   return (
     <section className="cookie-consent" aria-label="Consentimento de cookies">
       <p>
-        Usamos cookies analíticos para perceber visitas ao site. Pode aceitar ou recusar; o site funciona na mesma.
+        Usamos cookies analíticos para compreender melhor as visitas ao site e melhorar a experiência. Pode aceitar ou recusar; o site continua a funcionar normalmente.
       </p>
       <div className="cookie-consent-actions">
         <button type="button" className="button button-secondary button-small" onClick={() => chooseConsent("declined")}>
