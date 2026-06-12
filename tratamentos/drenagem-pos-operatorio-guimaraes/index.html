@@ -10,6 +10,11 @@
     />
     <meta name="author" content="Delicarte by Raquel Oliveira" />
     <meta name="theme-color" content="#6f755c" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com; img-src 'self' data: https://delicarte.pt https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-src 'none'; form-action 'self'; upgrade-insecure-requests"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="geo.region" content="PT-03" />
     <meta name="geo.placename" content="Guimarães, Portugal" />
     <meta name="geo.position" content="41.4425;-8.2956" />
@@ -196,8 +201,20 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
       gtag('js', new Date());
-      gtag('config', 'G-EMD39MEPTD');
+      gtag('config', 'G-EMD39MEPTD', {
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
     </script>
   </head>
   <body>
