@@ -85,12 +85,12 @@ const serviceGroups: ServiceGroup[] = [
     },
     items: [
       { name: "Drenagem Linfática Manual", price: "65€", time: "60 min" },
-      { name: "Drenagem Linfática Lipedema", price: "35€", time: "45 min" },
+      { name: "Drenagem Linfática Lipedema", price: "40€", time: "45 min" },
       { name: "Drenagem Linfática Grávida Pós-Parto", price: "55€", time: "60 min" },
       { name: "Drenagem Facial", price: "35€", time: "45 min" },
       { name: "Drenagem Visceral", price: "35€", time: "45 min" },
       { name: "Drenagem Linfática Cervical", price: "50€", time: "60 min" },
-      { name: "Drenagem zona membros inferiores ou abdómen", price: "30€", time: "45 min" },
+      { name: "Drenagem zona membros inferiores ou abdómen", price: "35€", time: "45 min" },
     ],
   },
   {
@@ -124,7 +124,7 @@ const serviceGroups: ServiceGroup[] = [
       { name: "Massagem Anti Stress", price: "45€", time: "60 min" },
       { name: "Manta de Sudação", price: "20€", time: "45 min" },
       { name: "Pack Harmonia", price: "300€", time: "6 sessões" },
-      { name: "Tapping pós-parto", price: "35€", time: "40 min" },
+      { name: "Tapping pós-parto", price: "40€", time: "40 min" },
       { name: "Dermaplaning", price: "40€", time: "60 min" },
     ],
   },

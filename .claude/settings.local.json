@@ -7,7 +7,10 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "PowerShell(Get-ChildItem \"E:\\\\Git Projects\\\\GIT_HUB\\\\Delicarte\\\\src\\\\assets\" | Select-Object Name, @{Name=\"KB\";Expression={[math]::Round\\($_.Length/1KB,1\\)}} | Sort-Object KB -Descending)",
       "Bash(node \"C:\\\\Users\\\\Phoenix\\\\.claude\\\\skills\\\\impeccable\\\\scripts\\\\load-context.mjs\")",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(grep -oE \"Drenagem Linfática Lipedema[^}]{0,40}\" dist/index.html)",
+      "Bash(grep -oE \"membros inferiores ou abdómen[^}]{0,40}\" dist/index.html)",
+      "Bash(grep -oE \"Tapping pós-parto[^}]{0,40}\" dist/index.html)"
     ]
   }
 }
