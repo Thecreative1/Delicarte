@@ -95,6 +95,25 @@ Este é um site Vite, React e Tailwind.
 - Correr `npm run build` antes de terminar alterações de código.
 - Se a verificação de build alterar ficheiros gerados que não fazem parte da mudança pretendida, manter o diff final focado.
 
+## Alterar Preços
+
+Os preços dos serviços vivem **num único sítio**: a lista de categorias no topo de `src/App.tsx`. Cada serviço é um objeto `{ name, price, time }` dentro de `items`. Não estão duplicados nas páginas de tratamentos (`tratamentos/.../index.html`), por isso basta editar `src/App.tsx`.
+
+Passos para uma alteração de preços:
+
+1. Editar o `price` do serviço certo em `src/App.tsx` (ex.: `price: "40€"`). Manter o símbolo `€` colado ao número, como nos restantes.
+2. Correr `npm run build` para regenerar o `dist/` (a versão estática de produção).
+3. Confirmar o novo valor em `dist/index.html`.
+4. Publicar com `npm run deploy` (envia `dist` para a branch `gh-pages`). **Só depois deste passo o site ao vivo fica atualizado.**
+
+O cliente costuma usar nomes informais. Mapa de nomes habituais para o nome real no site:
+
+- "Tapping" → `Tapping pós-parto`
+- "Drenagem Lipedema" → `Drenagem Linfática Lipedema`
+- "Drenagem por zona (abdómen ou pernas)" → `Drenagem zona membros inferiores ou abdómen`
+
+Quando o pedido for "X -40€" ou "X – 40€", o traço significa "passa a custar 40€", não um desconto. Em caso de dúvida sobre qual o serviço, confirmar com o cliente antes de alterar.
+
 ## Checklist De QA
 
 Antes de terminar qualquer alteração de frontend:
