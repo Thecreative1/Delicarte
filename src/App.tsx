@@ -29,6 +29,7 @@ const whatsappHref =
   "https://wa.me/351917968714?text=Ol%C3%A1%20Raquel%2C%20gostaria%20de%20marcar%20uma%20sess%C3%A3o%20na%20Delicarte.";
 const instagramHref = "https://www.instagram.com/delicarte_raqueloliveira";
 const tiktokHref = "https://www.tiktok.com/@delicarte_raqueloliveira";
+const facebookHref = "https://www.facebook.com/profile.php?id=61555094146328";
 const gaMeasurementId = "G-EMD39MEPTD";
 const cookieConsentStorageKey = "delicarte_cookie_consent";
 const heroTreatmentRoom = "/delicarte-treatment-room.jpg";
@@ -74,7 +75,7 @@ type ServiceGroup = {
   }[];
 };
 
-const serviceGroups: ServiceGroup[] = [
+export const serviceGroups: ServiceGroup[] = [
   {
     title: "Drenagem Linfática",
     label: "Ver tipos e preços",
@@ -1352,9 +1353,12 @@ function Footer() {
           <p className="mt-3 text-stone-400">by Raquel Oliveira</p>
         </div>
         <div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:flex lg:flex-wrap lg:gap-x-12">
             <a className="footer-link" href={instagramHref} target="_blank" rel="noopener noreferrer">
               Instagram
+            </a>
+            <a className="footer-link" href={facebookHref} target="_blank" rel="noopener noreferrer">
+              Facebook
             </a>
             <a className="footer-link" href={tiktokHref} target="_blank" rel="noopener noreferrer">
               TikTok

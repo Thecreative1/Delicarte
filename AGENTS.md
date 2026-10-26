@@ -97,7 +97,9 @@ Este é um site Vite, React e Tailwind.
 
 ## Alterar Preços
 
-Os preços dos serviços vivem **num único sítio**: a lista de categorias no topo de `src/App.tsx`. Cada serviço é um objeto `{ name, price, time }` dentro de `items`. Não estão duplicados nas páginas de tratamentos (`tratamentos/.../index.html`), por isso basta editar `src/App.tsx`.
+Os preços dos serviços vivem **num único sítio**: a lista `serviceGroups` no topo de `src/App.tsx`. Cada serviço é um objeto `{ name, price, time }` dentro de `items`. Não estão duplicados nas páginas de tratamentos (`tratamentos/.../index.html`), por isso basta editar `src/App.tsx`.
+
+Os dados estruturados para o Google (JSON-LD nos ficheiros `index.html`) não têm números: o `scripts/prerender.mjs` preenche-os no build a partir de `serviceGroups`. Os `Offer` são ligados pelo nome do serviço e os `AggregateOffer` pela página do grupo (`secondaryCta.href`). Se um nome não corresponder, o build falha. Ao mudar o nome de um serviço que aparece no JSON-LD da homepage, atualizar também o `name` em `index.html`.
 
 Passos para uma alteração de preços:
 
