@@ -1368,28 +1368,16 @@ function Footer() {
               +351 917 968 714
             </a>
           </div>
-          <div className="mt-8 grid gap-2 text-xs leading-6 text-stone-400">
-            <a
-              className="footer-link w-fit text-sm"
-              href="https://www.livroreclamacoes.pt/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <p className="mt-8 text-xs leading-6 text-stone-400">
+            <a className="footer-link" href="https://www.livroreclamacoes.pt/" target="_blank" rel="noopener noreferrer">
               Livro de Reclamações Eletrónico
             </a>
-            <p className="max-w-2xl">
-              Em caso de litígio, o consumidor pode recorrer ao{" "}
-              <a className="footer-link text-stone-400" href="https://www.triave.pt/" target="_blank" rel="noopener noreferrer">
-                TRIAVE – Centro de Arbitragem de Conflitos de Consumo do Vale do Ave
-              </a>
-              , em Guimarães. Mais informações no{" "}
-              <a className="footer-link text-stone-400" href="https://www.consumidor.gov.pt/" target="_blank" rel="noopener noreferrer">
-                Portal do Consumidor
-              </a>
-              .
-            </p>
-          </div>
-          <p className="mt-4 text-xs leading-6 text-stone-400">
+            {" · "}Resolução de litígios de consumo:{" "}
+            <a className="footer-link" href="https://www.triave.pt/" target="_blank" rel="noopener noreferrer">
+              TRIAVE (triave.pt)
+            </a>
+          </p>
+          <p className="mt-2 text-xs leading-6 text-stone-400">
             © 2026 Delicarte. Desenvolvido por{" "}
             <a
               className="footer-link text-stone-400"
