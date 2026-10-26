@@ -102,9 +102,9 @@ Os preços dos serviços vivem **num único sítio**: a lista de categorias no t
 Passos para uma alteração de preços:
 
 1. Editar o `price` do serviço certo em `src/App.tsx` (ex.: `price: "40€"`). Manter o símbolo `€` colado ao número, como nos restantes.
-2. Correr `npm run build` para regenerar o `dist/` (a versão estática de produção).
+2. Correr `npm run build` para verificar que o build passa (o `dist/` é gerado localmente e não vai para o git).
 3. Confirmar o novo valor em `dist/index.html`.
-4. Publicar com `npm run deploy` (envia `dist` para a branch `gh-pages`). **Só depois deste passo o site ao vivo fica atualizado.**
+4. Fazer commit e push para `main`. O GitHub Actions faz o build e publica em `delicarte.pt`. **Só depois deste passo o site ao vivo fica atualizado.** Confirmar que o workflow "Deploy Delicarte to GitHub Pages" terminou com sucesso.
 
 O cliente costuma usar nomes informais. Mapa de nomes habituais para o nome real no site:
 

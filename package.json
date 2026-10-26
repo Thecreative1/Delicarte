@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
-    "preview": "vite preview --host 127.0.0.1",
-    "predeploy": "npm run build",
-    "deploy": "node scripts/deploy-gh-pages.mjs"
+    "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",

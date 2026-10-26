@@ -1,10 +1,22 @@
 # Deploy Notes
 
-This project is a Vite app published under the GitHub Pages repository path:
+This project is a Vite app published with GitHub Pages on the custom domain:
 
-https://thecreative1.github.io/Delicarte/
+https://delicarte.pt/
 
-The site is published from the `gh-pages` branch.
+The domain is set by `public/CNAME`, and `vite.config.ts` uses `base: "/"`.
+
+## How Deploys Work
+
+Every push to `main` runs the GitHub Actions workflow `.github/workflows/deploy.yml`:
+
+1. `npm ci`
+2. `npm run build` (Vite build + SSR prerender of every route into static HTML)
+3. Uploads `dist` and deploys it to GitHub Pages.
+
+The workflow can also be started by hand from the Actions tab (`workflow_dispatch`).
+
+There is no manual deploy command. `dist/` is generated locally and is not committed.
 
 ## Required GitHub Pages Setting
 
@@ -12,23 +24,21 @@ In the GitHub repository, open:
 
 Settings -> Pages
 
-Set:
+Source must be:
 
-Source: Deploy from a branch
+GitHub Actions
 
-Branch:
+The old `gh-pages` branch is no longer used to serve the site.
 
-gh-pages
+## Checking A Deploy
 
-Folder:
+After pushing, check that the latest "Deploy Delicarte to GitHub Pages" run in the Actions tab succeeded:
 
-/root
+```bash
+gh run list --limit 3
+```
 
-Do not use:
-
-main -> /root
-
-Do not serve the repository root `index.html` as the production site.
+If the deploy step fails with "Deployment failed, try again later", it is a temporary GitHub error. Re-run the workflow from the Actions tab.
 
 ## Development Index
 
@@ -40,36 +50,12 @@ The root `index.html` must stay as the Vite development entry:
 
 Do not replace it with a production `dist/index.html`.
 
-## Deploy Command
-
-After changes, publish with:
-
-```bash
-npm run deploy
-```
-
-The `deploy` script builds the app and publishes only the `dist` folder to the `gh-pages` branch:
-
-```json
-"predeploy": "npm run build",
-"deploy": "node scripts/deploy-gh-pages.mjs"
-```
-
-The deploy script creates a temporary branch worktree from `dist`, adds `.nojekyll`, and force-pushes it to `gh-pages`.
-
 ## Expected Production Output
 
-After `npm run build`, `dist/index.html` must reference assets under:
+After `npm run build`, `dist/` contains prerendered HTML for:
 
-```text
-/Delicarte/assets/
-```
+- `/`
+- `/tratamentos/drenagem-linfatica-guimaraes/`
+- `/tratamentos/drenagem-pos-operatorio-guimaraes/`
 
-Example:
-
-```html
-<script type="module" crossorigin src="/Delicarte/assets/...js"></script>
-<link rel="stylesheet" crossorigin href="/Delicarte/assets/...css">
-```
-
-If the public site is blank and the browser shows `/src/main.tsx`, GitHub Pages is still serving `main / root` instead of `gh-pages / root`.
+Assets are referenced from `/assets/`.

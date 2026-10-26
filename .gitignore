@@ -1,4 +1,5 @@
 node_modules/
 dist/
-.gh-pages-tmp/
+dist-ssr/
 .DS_Store
+*.tsbuildinfo
