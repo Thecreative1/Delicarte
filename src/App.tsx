@@ -9,6 +9,7 @@ declare global {
 }
 import creamDetail from "./assets/cream-detail.webp";
 import delicartFacialTreatment from "./assets/delicarte-facial-treatment.jpg";
+import delicarteLogo from "./assets/delicarte-logo.svg";
 import delicartReception from "./assets/delicarte-reception.jpg";
 import delicartTreatmentRoom from "./assets/delicarte-treatment-room.jpg";
 import drainageAbdomen from "./assets/drainage-abdomen.jpg";
@@ -585,8 +586,8 @@ function Header({ isHome }: { isHome: boolean }) {
     <header className="sticky top-0 z-20 border-b border-stone-200/80 bg-stone-50/92 backdrop-blur-md">
       <a href="#top" className="skip-link button">Saltar para o conteúdo</a>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-12">
-        <a href={isHome ? "#top" : "/"} onClick={closeMenu} className="font-serif text-xl tracking-[0.12em] text-stone-950">
-          Delicarte
+        <a href={isHome ? "#top" : "/"} onClick={closeMenu} className="shrink-0">
+          <img src={delicarteLogo} alt="Delicarte" width={2025} height={1276} className="h-12 w-auto sm:h-14 lg:h-16" />
         </a>
         <nav aria-label="Menu principal" className="hidden items-center gap-8 text-sm text-stone-700 md:flex">
           <a className="nav-link" href={sectionHref("sobre")}>
